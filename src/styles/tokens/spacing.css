@@ -1,0 +1,26 @@
+:root{
+--space-1:4px;
+--space-2:8px;
+--space-3:12px;
+--space-4:16px;
+--space-6:24px;
+--space-8:32px;
+--space-12:48px;
+--space-16:64px;
+--space-24:96px;
+--space-32:128px;
+
+/* Editorial rhythm */
+--section-pad-y:96px;
+--section-pad-y-sm:64px;
+--gutter:24px;
+--container-max:1280px;
+--container-pad:48px;
+--grid-columns:12; /* @kind other */
+
+/* A4 print geometry (company profile) */
+--a4-margin-x:20mm;
+--a4-margin-top:18mm;
+--a4-margin-bottom:18mm;
+--a4-gutter:4.5mm; /* @kind spacing */
+}

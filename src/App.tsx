@@ -1,122 +1,91 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import type { CSSProperties, ReactNode } from 'react'
+import './styles/design-system.css'
+import './styles/source-page.css'
+
+import industrialPhoto from './assets/saung/photo-industrial.png'
+import marinePhoto from './assets/saung/photo-marine.png'
+import mooringBoatPhoto from './assets/saung/photo-mooring-boat.png'
+import plantPhoto from './assets/saung/photo-plant.png'
+import safetyPhoto from './assets/saung/photo-safety.png'
+import logo from './assets/saung/logo-lockup.png'
+import darkLogo from './assets/saung/logo-lockup-dark.png'
+
+type Item = { label: string; value: string }
+type Division = 'marine' | 'industrial' | 'safety'
+
+const contentWidth: CSSProperties = { maxWidth: 1280, margin: '0 auto', padding: '96px 48px' }
+const heading: CSSProperties = { margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 36, lineHeight: 1.12, letterSpacing: '-.01em' }
+const bodyCopy: CSSProperties = { margin: 0, fontSize: 15, lineHeight: 1.6, color: '#4B5155' }
+
+function Logo({ dark = false, height = 36 }: { dark?: boolean; height?: number }) {
+  return <img src={dark ? darkLogo : logo} alt="PT SAUNG — PT Sinar Anugerah Anagata" style={{ height, width: 'auto', display: 'block' }} />
+}
+
+function Button({ children, href, variant = 'primary', arrow = false, size = 'md' }: { children: ReactNode; href: string; variant?: 'primary' | 'secondary' | 'ghost'; arrow?: boolean; size?: 'sm' | 'md' | 'lg' }) {
+  const sizes = { sm: { fontSize: 11, padding: '8px 14px', minHeight: 34 }, md: { fontSize: 12, padding: '12px 20px', minHeight: 44 }, lg: { fontSize: 13, padding: '16px 24px', minHeight: 52 } }
+  const variants: Record<string, CSSProperties> = {
+    primary: { background: '#46B43C', color: '#111315', borderColor: '#46B43C' },
+    secondary: { background: 'transparent', color: '#111315', borderColor: '#111315' },
+    ghost: { background: 'transparent', color: '#111315', borderColor: 'transparent', padding: '8px 0' },
+  }
+  return <a className={`saung-button saung-button-${variant}`} href={href} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: arrow ? 'space-between' : 'center', gap: 24, fontFamily: 'Inter, sans-serif', fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase', borderRadius: 2, border: '1px solid transparent', textDecoration: 'none', ...sizes[size], ...variants[variant] }}>{children}{arrow && <span aria-hidden="true">→</span>}</a>
+}
+
+function SectionMarker({ number, title, description, accent = '#46B43C', dark = false }: { number: string; title: string; description?: string; accent?: string; dark?: boolean }) {
+  return <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: 24, alignItems: 'start' }}><span style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: 72, lineHeight: .85, letterSpacing: '-.03em', color: accent, fontVariantNumeric: 'tabular-nums' }}>{number}</span><div style={{ display: 'grid', gap: 8, paddingTop: 4, borderTop: `1px solid ${dark ? '#3A4044' : '#C9CCC9'}` }}><h2 style={{ margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 24, textTransform: 'uppercase', letterSpacing: '.08em', color: dark ? '#F7F8F6' : '#111315' }}>{title}</h2>{description && <p style={{ ...bodyCopy, color: dark ? '#9BA1A4' : '#4B5155', maxWidth: '52ch' }}>{description}</p>}</div></div>
+}
+
+function SpecList({ items, dark = false }: { items: Item[]; dark?: boolean }) {
+  return <dl style={{ margin: 0, display: 'grid' }}>{items.map((item) => <div key={item.label} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, padding: '12px 0', borderBottom: `1px solid ${dark ? '#3A4044' : '#E1E3E0'}` }}><dt style={{ fontSize: 12, letterSpacing: '.08em', textTransform: 'uppercase', color: dark ? '#9BA1A4' : '#6F767B' }}>{item.label}</dt><dd style={{ margin: 0, fontSize: 13, fontWeight: 500, color: dark ? '#F7F8F6' : '#111315' }}>{item.value}</dd></div>)}</dl>
+}
+
+function CapabilityCard({ division, title, description, items }: { division: Division; title: string; description: string; items: string[] }) {
+  const accent = { marine: '#167D8D', industrial: '#D69024', safety: '#C63632' }[division]
+  const icon = { marine: 'ship', industrial: 'factory', safety: 'flame' }[division]
+  return <div style={{ padding: 32, border: '1px solid #E1E3E0', background: '#FFFFFF', borderRadius: 2, borderTop: `2px solid ${accent}`, display: 'grid', gap: 16, alignContent: 'start' }}><span aria-hidden="true" style={{ display: 'inline-block', width: 28, height: 28, background: accent, WebkitMaskImage: `url("https://unpkg.com/lucide-static@0.446.0/icons/${icon}.svg")`, maskImage: `url("https://unpkg.com/lucide-static@0.446.0/icons/${icon}.svg")`, WebkitMaskRepeat: 'no-repeat', maskRepeat: 'no-repeat', WebkitMaskSize: 'contain', maskSize: 'contain' }} /><h3 style={{ margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 16, textTransform: 'uppercase', letterSpacing: '.04em' }}>{title}</h3><p style={{ ...bodyCopy, fontSize: 14, lineHeight: 1.35 }}>{description}</p><ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'grid', gap: 8 }}>{items.map((item) => <li key={item} style={{ fontSize: 13, color: '#4B5155', display: 'flex', gap: 12, alignItems: 'baseline' }}><span style={{ width: 6, height: 1, background: accent, flex: '0 0 auto' }} />{item}</li>)}</ul></div>
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const marineItems = ['Pembangunan kapal', 'Kapal fiberglass', 'Kapal aluminium', 'Modifikasi kapal', 'Perbaikan kapal', 'Struktur maritim']
+  const industrialItems = ['Pompa dan sistem pemompaan', 'Permesinan kapal', 'Permesinan industri', 'Valve dan komponen piping', 'Peralatan kelistrikan', 'Spare parts dan marine equipment', 'Pengadaan']
+  const safetyItems = ['Dry Chemical Powder', 'Sistem pemadam CO₂', 'Foam / AFFF', 'Sistem thermatic / semi-otomatis', 'Peralatan keselamatan maritim', 'Peralatan keselamatan industri']
+  const experienceList = [{ label: 'Kapal patroli', value: 'Patrol vessels' }, { label: 'Kapal penumpang', value: 'Passenger vessels' }, { label: 'Kapal kerja', value: 'Mooring boats' }, { label: 'Kapal penyelamat', value: 'Rescue boats' }, { label: 'Kapal tunda', value: 'Tugboats' }, { label: 'Perbaikan & modifikasi', value: 'Repair & modification' }]
+  const projectSpecs = [{ label: 'Kategori', value: 'Marine vessel' }, { label: 'Panjang', value: '14.00 m' }, { label: 'Lebar', value: '4.00 m' }, { label: 'Tinggi', value: '1.90 m' }]
+  const corporateData = [{ label: 'Badan usaha', value: 'PT Sinar Anugerah Anagata' }, { label: 'Merek', value: 'PT SAUNG' }, { label: 'Tahun pendirian', value: '2025' }, { label: 'Kantor pusat', value: 'Surabaya, Jawa Timur, Indonesia' }]
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+  return <div style={{ fontFamily: 'Inter, sans-serif', color: '#111315', background: '#F7F8F6' }}>
+    <header style={{ position: 'sticky', top: 0, zIndex: 20, background: '#F7F8F6', borderBottom: '1px solid #E1E3E0' }}><div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 48px', minHeight: 76, display: 'flex', alignItems: 'center', gap: 24 }}><Logo /><nav style={{ display: 'flex', justifyContent: 'flex-end', gap: 20, marginLeft: 'auto', fontSize: 12, fontWeight: 600, letterSpacing: '.08em', textTransform: 'uppercase' }}><a href="#tentang">Perusahaan</a><a href="#kapabilitas">Kapabilitas</a><a className="secondary-nav" href="#maritim">Maritim</a><a className="secondary-nav" href="#industri">Industri</a><a className="secondary-nav" href="#keselamatan">Keselamatan</a><a href="Pengalaman Terpilih.dc.html">Pengalaman</a><a href="Informasi Korporasi.dc.html">Korporasi</a></nav><Button href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG" size="sm">Ajukan Kebutuhan</Button></div></header>
 
-      <div className="ticks"></div>
+    <section data-screen-label="Hero" style={{ position: 'relative', background: '#111315', color: '#F7F8F6' }}><img src={marinePhoto} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: .4 }} /><div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg,rgba(17,19,21,.95),rgba(17,19,21,.74) 55%,rgba(17,19,21,.45))' }} /><div style={{ ...contentWidth, position: 'relative', paddingTop: 112, paddingBottom: 88 }}><span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: '#46B43C' }}>PT Sinar Anugerah Anagata</span><h1 style={{ margin: '24px 0 0', fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: 64, lineHeight: 1.04, letterSpacing: '-.02em', textTransform: 'uppercase', maxWidth: '17ch' }}>Rekayasa Maritim. Sistem Industri. Dibangun untuk Keandalan.</h1><p style={{ margin: '28px 0 0', maxWidth: '58ch', fontSize: 18, lineHeight: 1.6, color: '#C6CBCD' }}>PT SAUNG menyediakan solusi terintegrasi untuk kebutuhan maritim dan industri, mulai dari pembangunan dan perbaikan kapal, penyediaan mesin dan komponen, hingga sistem keselamatan dan proteksi kebakaran.</p><p style={{ margin: '16px 0 0', maxWidth: '58ch', fontSize: 15, lineHeight: 1.6, color: '#9BA1A4' }}>Perusahaan bergerak dalam produksi kapal berbahan fiberglass dan aluminium serta penyediaan mesin dan peralatan untuk kebutuhan maritim dan industri.</p><div style={{ marginTop: 40, display: 'flex', gap: 16, flexWrap: 'wrap' }}><Button href="#kapabilitas" arrow>Lihat Kapabilitas Kami</Button><Button href="Pengalaman Terpilih.dc.html" variant="secondary">Lihat Pengalaman Terpilih</Button></div><div style={{ marginTop: 80, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 32, borderTop: '1px solid #3A4044', paddingTop: 28 }}>{[['03', 'Kapabilitas terintegrasi'], ['2025', 'Tahun pendirian'], ['Surabaya', 'Kantor pusat'], ['Fiberglass & Aluminium', 'Material konstruksi kapal']].map(([value, label]) => <div key={label} style={{ display: 'grid', gap: 8 }}><span style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 32, color: '#F7F8F6' }}>{value}</span><span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: '#9BA1A4' }}>{label}</span></div>)}</div></div></section>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+    <section id="tentang" data-screen-label="01 Tentang" style={{ ...contentWidth }}><SectionMarker number="01" title="Tentang SAUNG" /><div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: '7fr 5fr', gap: 64, alignItems: 'start' }}><div style={{ display: 'grid', gap: 24 }}><h2 style={heading}>Solusi engineering untuk operasi maritim dan industri.</h2><p style={bodyCopy}>PT Sinar Anugerah Anagata, atau PT SAUNG, adalah perusahaan berbasis di Surabaya yang bergerak dalam bidang marine engineering, vessel solutions, industrial equipment, dan safety systems.</p><p style={bodyCopy}>Didirikan pada tahun 2025, perusahaan melayani kebutuhan klien di sektor maritim, baik dari instansi pemerintahan, perusahaan swasta, maupun klien perseorangan.</p><p style={bodyCopy}>Kami membangun bisnis berdasarkan prinsip sederhana: memahami kebutuhan teknis dengan jelas, menyediakan solusi yang tepat, dan menjaga kualitas pekerjaan dari awal hingga penyelesaian.</p></div><div style={{ display: 'grid', gap: 32 }}><div style={{ borderLeft: '2px solid #46B43C', padding: '4px 0 4px 24px' }}><p style={{ margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 20, lineHeight: 1.4 }}>Kami fokus pada hal yang menentukan: peralatan yang andal, engineering yang praktis, dan penyelesaian pekerjaan yang dapat dipertanggungjawabkan.</p></div><div style={{ aspectRatio: '4/3', overflow: 'hidden', background: '#E8EAE7' }}><img src={plantPhoto} alt="Fasilitas dan pekerjaan teknis PT SAUNG" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /></div></div></div></section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+    <section id="kapabilitas" data-screen-label="02 Kapabilitas" style={{ borderTop: '1px solid #E1E3E0' }}><div style={contentWidth}><SectionMarker number="02" title="Kapabilitas" description="SAUNG menggabungkan kapabilitas engineering, supply, dan safety dalam satu ekosistem layanan yang saling melengkapi." /><h2 style={{ ...heading, marginTop: 40 }}>Satu perusahaan. Tiga kapabilitas terintegrasi.</h2><div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 24 }}><div style={{ display: 'grid', gap: 16 }}><CapabilityCard division="marine" title="Rekayasa Maritim" description="Pembangunan, modifikasi, dan perbaikan kapal untuk berbagai kebutuhan operasional." items={marineItems} /><Button href="#maritim" variant="ghost" size="sm" arrow>Lihat Rekayasa Maritim</Button></div><div style={{ display: 'grid', gap: 16 }}><CapabilityCard division="industrial" title="Sistem Industri" description="Penyediaan mesin, komponen, dan equipment untuk mendukung operasi kapal maupun fasilitas industri." items={industrialItems} /><Button href="#industri" variant="ghost" size="sm" arrow>Lihat Sistem Industri</Button></div><div style={{ display: 'grid', gap: 16 }}><CapabilityCard division="safety" title="Keselamatan & Proteksi Kebakaran" description="Peralatan dan sistem keselamatan untuk membantu melindungi manusia, aset, dan operasi dari risiko kebakaran." items={safetyItems} /><Button href="#keselamatan" variant="ghost" size="sm" arrow>Lihat Solusi Keselamatan</Button></div></div><p style={{ ...bodyCopy, marginTop: 32, fontSize: 13, color: '#6F767B', maxWidth: '88ch' }}>Materi perusahaan mencantumkan berbagai kategori seperti pump, compressor, generator, electric motor, gearbox, valve, hydraulic equipment, marine piping, navigation equipment, dan komponen kapal lainnya. Lini fire protection PT SAUNG mencakup Dry Chemical Powder, liquid gas, thermatic/semi automatic, CO₂, dan foam.</p></div></section>
+
+    <CapabilitySection id="maritim" number="03" title="Rekayasa Maritim" accent="#167D8D" headingText="Dibangun untuk tuntutan operasi yang nyata." paragraphs={['Setiap kapal memiliki tujuan operasional yang berbeda.', 'Karena itu, SAUNG tidak melihat kapal sebagai produk standar, tetapi sebagai sebuah sistem yang harus menyesuaikan kebutuhan pengguna, kondisi operasi, kapasitas, konfigurasi, dan lingkungan kerjanya.', 'Kapabilitas yang ditampilkan dalam portofolio perusahaan mencakup berbagai jenis kapal seperti passenger boat, patrol boat, ambulance boat, rescue boat, survey boat, landing craft, fishing boat, tugboat, catamaran, serta floating structures.']} image={marinePhoto} alt="Pekerjaan konstruksi kapal" note="Materi portfolio perusahaan secara khusus juga menampilkan pekerjaan modifikasi kapal serta kategori repair kapal." cards={[['Pembangunan Kapal', 'Pembangunan kapal fiberglass dan aluminium untuk berbagai kebutuhan komersial dan operasional.'], ['Modifikasi Kapal', 'Penyesuaian dan peningkatan kapal eksisting untuk memenuhi kebutuhan operasional baru.'], ['Perbaikan Kapal', 'Perbaikan dan pemeliharaan kapal untuk membantu menjaga kelayakan dan kesiapan operasional.']]} />
+    <CapabilitySection id="industri" number="04" title="Sistem Industri" accent="#D69024" headingText="Peralatan di balik operasi yang andal." paragraphs={['Operasi maritim dan industri tidak hanya bergantung pada satu mesin.', 'Pompa, motor, piping, valve, electrical system, compressor, dan berbagai supporting equipment harus bekerja sebagai satu sistem yang dapat diandalkan.', 'SAUNG menyediakan berbagai kebutuhan machinery dan equipment untuk aplikasi marine maupun industrial.']} image={industrialPhoto} alt="Mesin dan peralatan industri" cards={[['Pumps', 'Solusi pumping untuk berbagai aplikasi, mulai dari centrifugal pump dan sewage pump hingga vacuum pump, booster pump, screw pump, dan specialized pumping systems.'], ['Mesin & Komponen', 'Mesin dan komponen untuk mendukung sistem mekanikal dan operasional.'], ['Marine Equipment', 'Komponen kapal, sistem navigasi, safety equipment, hatch, marine lighting, cargo handling, dan supporting equipment lainnya.'], ['Pengadaan', 'Dukungan pengadaan equipment dan spare parts berdasarkan kebutuhan teknis dan operasional klien.']]} />
+    <CapabilitySection id="keselamatan" number="05" title="Keselamatan & Proteksi Kebakaran" accent="#C63632" headingText="Perlindungan harus bekerja sebelum dibutuhkan." paragraphs={['Keselamatan tidak dimulai ketika keadaan darurat terjadi.', 'Ia dimulai dari pemilihan equipment yang tepat, penempatan yang sesuai, dan kesiapan sistem ketika dibutuhkan.', 'SAUNG menyediakan berbagai solusi proteksi kebakaran untuk kebutuhan bangunan, fasilitas industri, kapal, dan area operasional.']} image={safetyPhoto} alt="Peralatan proteksi kebakaran" cards={[['Alat Pemadam Api', 'Berbagai jenis media pemadam untuk kebutuhan dan karakteristik risiko yang berbeda.'], ['Peralatan Proteksi Kebakaran', 'Equipment pendukung untuk membangun sistem perlindungan kebakaran yang lebih lengkap.'], ['Keselamatan Maritim & Industri', 'Produk keselamatan yang mendukung lingkungan kerja dan operasi maritim.']]} />
+
+    <section id="pengalaman" data-screen-label="06 Pengalaman" style={{ background: '#111315', color: '#F7F8F6' }}><div style={contentWidth}><SectionMarker number="06" title="Pengalaman Terpilih" dark /><div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: '7fr 5fr', gap: 64 }}><div style={{ display: 'grid', gap: 24 }}><h2 style={{ ...heading, color: '#F7F8F6' }}>Pengalaman pada berbagai jenis kapal dan kebutuhan operasi.</h2><p style={{ ...bodyCopy, color: '#C6CBCD' }}>Tim yang berada di balik SAUNG membawa pengalaman pada berbagai jenis proyek maritim, mulai dari patrol vessels dan passenger vessels hingga mooring boats, rescue boats, tugboats, serta vessel repair and modification.</p><p style={{ ...bodyCopy, color: '#C6CBCD' }}>Setiap proyek menunjukkan tuntutan yang berbeda—baik dari sisi ukuran, fungsi, konfigurasi maupun lingkungan operasi.</p><Button href="Pengalaman Terpilih.dc.html" arrow>Jelajahi Pengalaman Terpilih</Button></div><div style={{ display: 'grid', gap: 16 }}><EngineeringLine label="Jenis pekerjaan" dark /><SpecList items={experienceList} dark /></div></div><div style={{ marginTop: 64, display: 'grid', gridTemplateColumns: '1.6fr 1fr', gap: 48 }}><img src={mooringBoatPhoto} alt="Mooring boat" style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover' }} /><div style={{ display: 'grid', gap: 20 }}><span style={{ color: '#167D8D', fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase' }}>— Kapal Kerja</span><h3 style={{ margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 36, color: '#F7F8F6', textTransform: 'uppercase' }}>Mooring Boat</h3><SpecList items={projectSpecs} dark /><Button href="Pengalaman Terpilih.dc.html" variant="secondary" size="sm" arrow>Lihat Proyek</Button><p style={{ ...bodyCopy, fontSize: 12, color: '#9BA1A4' }}>Pekerjaan diselesaikan oleh tim teknis sebelum pendirian PT Sinar Anugerah Anagata pada 2025.</p></div></div></div></section>
+
+    <WorkflowSection />
+    <section data-screen-label="Pernyataan" style={{ background: '#111315', color: '#F7F8F6' }}><div style={{ ...contentWidth, paddingTop: 112, paddingBottom: 112 }}><div style={{ display: 'grid', gridTemplateColumns: '7fr 5fr', gap: 64, alignItems: 'end' }}><h2 style={{ ...heading, fontSize: 56, color: '#F7F8F6' }}>Kami tidak menjual kompleksitas. Kami menyelesaikan kebutuhan operasional.</h2><div style={{ display: 'grid', gap: 20 }}><span style={{ display: 'block', width: 64, height: 2, background: '#46B43C' }} /><p style={{ ...bodyCopy, color: '#C6CBCD', fontSize: 16 }}>Baik itu kapal, pompa, mesin, komponen, maupun sistem keselamatan, peran kami tetap sama:</p><p style={{ ...bodyCopy, color: '#F7F8F6', fontSize: 16 }}>memahami kebutuhan, menyediakan solusi yang tepat, dan menyelesaikannya dengan tanggung jawab.</p></div></div></div></section>
+
+    <SimpleGridSection id="sektor" number="08" title="Sektor yang Kami Layani" headingText="Mendukung operasi di berbagai sektor." items={[['Maritim & Pelayaran', 'Kapal, mesin, komponen, perbaikan, dan peralatan pendukung.'], ['Pemerintahan & Sektor Publik', 'Kebutuhan maritim dan industri untuk operasi sektor publik.'], ['Fasilitas Industri', 'Mesin, sistem pemompaan, equipment, komponen, dan solusi keselamatan.'], ['Operator Komersial', 'Solusi bagi organisasi yang bergantung pada aset maritim dan industri yang andal.']]} />
+    <section id="korporasi" data-screen-label="09 Korporasi" style={{ borderTop: '1px solid #E1E3E0' }}><div style={contentWidth}><SectionMarker number="09" title="Informasi Perusahaan" /><div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: '6fr 6fr', gap: 64 }}><div style={{ display: 'grid', gap: 24 }}><h2 style={heading}>Dibangun di atas fondasi korporasi yang formal.</h2><p style={bodyCopy}>PT Sinar Anugerah Anagata adalah badan usaha yang berkedudukan di Surabaya dan memiliki dokumen pendirian serta perizinan usaha yang dicantumkan dalam materi perusahaan.</p><Button href="Informasi Korporasi.dc.html" variant="secondary" arrow>Lihat Informasi Korporasi</Button></div><SpecList items={corporateData} /></div></div></section>
+    <section id="kontak" data-screen-label="Kontak" style={{ background: '#25292C', color: '#F7F8F6' }}><div style={contentWidth}><div style={{ display: 'grid', gridTemplateColumns: '7fr 5fr', gap: 64, alignItems: 'end' }}><div style={{ display: 'grid', gap: 24 }}><h2 style={{ ...heading, fontSize: 48, color: '#F7F8F6' }}>Punya kebutuhan teknis?</h2><p style={{ ...bodyCopy, color: '#C6CBCD', fontSize: 16 }}>Kirimkan spesifikasi, ruang lingkup pekerjaan, atau kebutuhan equipment Anda. Tim kami akan meninjau permintaan tersebut dan mendiskusikan solusi yang sesuai.</p></div><Button href="mailto:info@ptsaung.co.id?subject=Diskusi%20kebutuhan%20teknis%20-%20PT%20SAUNG&body=Mohon%20sampaikan%20spesifikasi%2C%20ruang%20lingkup%20pekerjaan%2C%20atau%20kebutuhan%20equipment%20Anda." size="lg" arrow>Diskusikan Kebutuhan Anda</Button></div></div></section>
+    <footer style={{ background: '#111315', color: '#F7F8F6' }}><div style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 48px 40px' }}><div style={{ display: 'grid', gridTemplateColumns: '2fr 1.1fr 1.1fr 1.4fr', gap: 48 }}><div style={{ display: 'grid', gap: 20 }}><Logo dark height={42} /><p style={{ ...bodyCopy, fontSize: 13, color: '#9BA1A4' }}>PT Sinar Anugerah Anagata. Rekayasa maritim, sistem industri, serta keselamatan dan proteksi kebakaran.</p></div><FooterLinks title="Kapabilitas" links={[["#maritim", "Rekayasa Maritim"], ["#industri", "Sistem Industri"], ["#keselamatan", "Keselamatan & Proteksi Kebakaran"]]} /><FooterLinks title="Navigasi" links={[["#tentang", "Perusahaan"], ["#kapabilitas", "Kapabilitas"], ["Pengalaman Terpilih.dc.html", "Pengalaman Terpilih"], ["Informasi Korporasi.dc.html", "Informasi Korporasi"], ["#kontak", "Kontak"]]} /><div style={{ display: 'grid', gap: 12, fontSize: 13, color: '#C6CBCD' }}><span className="footer-label">Kontak</span><span>Surabaya, Jawa Timur, Indonesia</span><a href="tel:+623100000000">+62 31 0000 0000</a><a href="mailto:info@ptsaung.co.id">info@ptsaung.co.id</a><span>www.ptsaung.co.id</span></div></div><div style={{ marginTop: 48, paddingTop: 20, borderTop: '1px solid #3A4044', display: 'flex', justifyContent: 'space-between', fontSize: 11, letterSpacing: '.08em', textTransform: 'uppercase', color: '#9BA1A4' }}><span>© 2026 PT Sinar Anugerah Anagata</span><span>Engineered for reliability</span></div></div></footer>
+  </div>
 }
+
+function EngineeringLine({ label, dark = false }: { label: string; dark?: boolean }) { return <div style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%' }}><span style={{ flex: 1, height: 1, background: dark ? '#3A4044' : '#C9CCC9' }} /><span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.14em', textTransform: 'uppercase', color: dark ? '#9BA1A4' : '#6F767B' }}>{label}</span><span style={{ width: 6, height: 6, background: '#46B43C' }} /></div> }
+
+function CapabilitySection({ id, number, title, accent, headingText, paragraphs, image, alt, note, cards }: { id: string; number: string; title: string; accent: string; headingText: string; paragraphs: string[]; image: string; alt: string; note?: string; cards: string[][] }) { return <section id={id} data-screen-label={`${number} ${title}`} style={{ borderTop: '1px solid #E1E3E0' }}><div style={contentWidth}><SectionMarker number={number} title={title} accent={accent} /><div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: '6fr 6fr', gap: 64 }}><div style={{ display: 'grid', gap: 24 }}><h2 style={heading}>{headingText}</h2>{paragraphs.map((paragraph) => <p key={paragraph} style={bodyCopy}>{paragraph}</p>)}</div><div style={{ aspectRatio: '3/2', overflow: 'hidden', background: '#E8EAE7' }}><img src={image} alt={alt} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} /></div></div><div style={{ marginTop: 56, display: 'grid', gridTemplateColumns: `repeat(${cards.length === 4 ? 2 : 3},1fr)`, gap: cards.length === 4 ? 0 : 24 }}>{cards.map(([cardTitle, cardBody]) => <div key={cardTitle} style={{ border: '1px solid #E1E3E0', borderTop: `2px solid ${accent}`, background: '#FFFFFF', padding: 32, display: 'grid', gap: 12 }}><h3 style={{ margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 16, textTransform: 'uppercase', letterSpacing: '.04em' }}>{cardTitle}</h3><p style={{ ...bodyCopy, fontSize: 13 }}>{cardBody}</p></div>)}</div>{note && <p style={{ ...bodyCopy, marginTop: 24, fontSize: 13, color: '#6F767B' }}>{note}</p>}</div></section> }
+
+function WorkflowSection() { const items = [['01', 'Pemahaman Teknis', 'Kami memulai dari kebutuhan operasional dan spesifikasi teknis, bukan dari produk yang ingin dijual.'], ['02', 'Kapabilitas Terintegrasi', 'Marine engineering, industrial equipment, dan safety berada dalam satu jaringan solusi yang saling mendukung.'], ['03', 'Penyediaan yang Fleksibel', 'Kami melayani kebutuhan equipment maupun pekerjaan berbasis proyek sesuai ruang lingkup yang dibutuhkan.'], ['04', 'Keandalan Jangka Panjang', 'Kami memilih solusi berdasarkan kemampuan untuk menjalankan fungsi yang dibutuhkan secara konsisten, bukan sekadar memenuhi daftar spesifikasi.']] ; return <section id="cara-kerja" data-screen-label="07 Cara Kerja" style={{ borderTop: '1px solid #E1E3E0' }}><div style={contentWidth}><SectionMarker number="07" title="Cara Kami Bekerja" /><h2 style={{ ...heading, marginTop: 40 }}>Engineering yang praktis. Tanggung jawab yang jelas.</h2><div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 32 }}>{items.map(([number, title, text]) => <div key={number} style={{ display: 'grid', gap: 12, borderTop: '1px solid #111315', paddingTop: 20 }}><span style={{ fontFamily: 'Manrope, sans-serif', fontWeight: 800, fontSize: 13, letterSpacing: '.1em', color: '#46B43C' }}>{number}</span><h3 style={{ margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 16, textTransform: 'uppercase', letterSpacing: '.04em' }}>{title}</h3><p style={{ ...bodyCopy, fontSize: 13 }}>{text}</p></div>)}</div></div></section> }
+
+function SimpleGridSection({ id, number, title, headingText, items }: { id: string; number: string; title: string; headingText: string; items: string[][] }) { return <section id={id} data-screen-label="08 Industri" style={contentWidth}><SectionMarker number={number} title={title} /><h2 style={{ ...heading, marginTop: 40 }}>{headingText}</h2><div style={{ marginTop: 48, display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', borderTop: '1px solid #111315' }}>{items.map(([itemTitle, itemBody]) => <div key={itemTitle} style={{ padding: '28px 32px 28px 0', borderBottom: '1px solid #E1E3E0', display: 'grid', gap: 8 }}><h3 style={{ margin: 0, fontFamily: 'Manrope, sans-serif', fontWeight: 700, fontSize: 16, textTransform: 'uppercase', letterSpacing: '.04em' }}>{itemTitle}</h3><p style={{ ...bodyCopy, fontSize: 13 }}>{itemBody}</p></div>)}</div></section> }
+
+function FooterLinks({ title, links }: { title: string; links: string[][] }) { return <div style={{ display: 'grid', gap: 12, alignContent: 'start', fontSize: 13 }}><span className="footer-label">{title}</span>{links.map(([href, label]) => <a key={label} href={href}>{label}</a>)}</div> }
 
 export default App
