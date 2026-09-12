@@ -1,10 +1,62 @@
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--surface-page);color:var(--text-primary);font-family:var(--font-body);font-size:var(--fs-body);line-height:var(--lh-body);font-weight:var(--fw-regular);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-h1,h2,h3,h4,h5{font-family:var(--font-heading);font-weight:var(--fw-bold);line-height:var(--lh-heading);letter-spacing:var(--ls-heading);margin:0}
-p{margin:0;text-wrap:pretty}
-a{color:var(--text-link);text-decoration:none;border-bottom:1px solid currentColor;transition:var(--transition-control)}
-a:hover{color:var(--text-link-hover)}
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:none;box-shadow:var(--focus-ring)}
-table{border-collapse:collapse;width:100%}
-:where(td,th){font-variant-numeric:var(--numeric-tabular)}
-.saung-eyebrow{font-family:var(--font-body);font-size:var(--fs-eyebrow);font-weight:var(--fw-semibold);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--text-muted)}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  margin: 0;
+}
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: var(--transition-control);
+}
+a:hover {
+  color: var(--text-link-hover);
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+:where(td, th) {
+  font-variant-numeric: var(--numeric-tabular);
+}
+.saung-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}

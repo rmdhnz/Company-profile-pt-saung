@@ -1,87 +1,87 @@
-:root{
-/* --- Core corporate palette --- */
---saung-black:#111315;
---industrial-white:#F7F8F6;
---saung-green:#46B43C;
---graphite:#25292C;
---steel-gray:#6F767B;
+:root {
+  /* --- Core corporate palette --- */
+  --saung-black: #111315;
+  --industrial-white: #f7f8f6;
+  --saung-green: #46b43c;
+  --graphite: #25292c;
+  --steel-gray: #6f767b;
 
-/* --- Neutral ramp derived from the core palette --- */
---neutral-000:#FFFFFF;
---neutral-050:#F7F8F6;
---neutral-100:#EEF0ED;
---neutral-200:#E1E3E0;
---neutral-300:#C9CCC9;
---neutral-400:#9BA1A4;
---neutral-500:#6F767B;
---neutral-600:#4B5155;
---neutral-700:#35393C;
---neutral-800:#25292C;
---neutral-900:#111315;
+  /* --- Neutral ramp derived from the core palette --- */
+  --neutral-000: #ffffff;
+  --neutral-050: #f7f8f6;
+  --neutral-100: #eef0ed;
+  --neutral-200: #e1e3e0;
+  --neutral-300: #c9ccc9;
+  --neutral-400: #9ba1a4;
+  --neutral-500: #6f767b;
+  --neutral-600: #4b5155;
+  --neutral-700: #35393c;
+  --neutral-800: #25292c;
+  --neutral-900: #111315;
 
-/* --- Green ramp (accent only; never flood a composition) --- */
---green-050:#EDF7EC;
---green-100:#D3EDD0;
---green-300:#8ED188;
---green-500:#46B43C;
---green-600:#3A9832;
---green-700:#2C7326;
+  /* --- Green ramp (accent only; never flood a composition) --- */
+  --green-050: #edf7ec;
+  --green-100: #d3edd0;
+  --green-300: #8ed188;
+  --green-500: #46b43c;
+  --green-600: #3a9832;
+  --green-700: #2c7326;
 
-/* --- Division accents (functional distinction only) --- */
---marine-teal:#167D8D;
---marine-teal-tint:#E4F1F3;
---industrial-amber:#D69024;
---industrial-amber-tint:#FAF0DE;
---safety-red:#C63632;
---safety-red-tint:#FAE7E6;
+  /* --- Division accents (functional distinction only) --- */
+  --marine-teal: #167d8d;
+  --marine-teal-tint: #e4f1f3;
+  --industrial-amber: #d69024;
+  --industrial-amber-tint: #faf0de;
+  --safety-red: #c63632;
+  --safety-red-tint: #fae7e6;
 
-/* --- Semantic surfaces --- */
---surface-page:var(--industrial-white);
---surface-raised:var(--neutral-000);
---surface-sunken:var(--neutral-100);
---surface-inverse:var(--saung-black);
---surface-inverse-raised:var(--graphite);
---surface-accent:var(--saung-green);
+  /* --- Semantic surfaces --- */
+  --surface-page: var(--industrial-white);
+  --surface-raised: var(--neutral-000);
+  --surface-sunken: var(--neutral-100);
+  --surface-inverse: var(--saung-black);
+  --surface-inverse-raised: var(--graphite);
+  --surface-accent: var(--saung-green);
 
-/* --- Semantic text --- */
---text-primary:var(--saung-black);
---text-secondary:var(--neutral-600);
---text-muted:var(--steel-gray);
---text-inverse:var(--industrial-white);
---text-inverse-muted:#9BA1A4;
---text-accent:var(--green-700);
---text-on-accent:var(--saung-black);
---text-link:var(--green-700);
---text-link-hover:var(--saung-black);
+  /* --- Semantic text --- */
+  --text-primary: var(--saung-black);
+  --text-secondary: var(--neutral-600);
+  --text-muted: var(--steel-gray);
+  --text-inverse: var(--industrial-white);
+  --text-inverse-muted: #9ba1a4;
+  --text-accent: var(--green-700);
+  --text-on-accent: var(--saung-black);
+  --text-link: var(--green-700);
+  --text-link-hover: var(--saung-black);
 
-/* --- Semantic lines --- */
---line-hairline:#E1E3E0;
---line-rule:#C9CCC9;
---line-strong:var(--saung-black);
---line-inverse:#3A4044;
---line-accent:var(--saung-green);
+  /* --- Semantic lines --- */
+  --line-hairline: #e1e3e0;
+  --line-rule: #c9ccc9;
+  --line-strong: var(--saung-black);
+  --line-inverse: #3a4044;
+  --line-accent: var(--saung-green);
 
-/* --- Status --- */
---status-danger:var(--safety-red);
---status-warning:var(--industrial-amber);
---status-info:var(--marine-teal);
---status-success:var(--green-600);
+  /* --- Status --- */
+  --status-danger: var(--safety-red);
+  --status-warning: var(--industrial-amber);
+  --status-info: var(--marine-teal);
+  --status-success: var(--green-600);
 }
 
 /* Dark section scope: apply to any full-bleed black band. */
-.saung-dark{
---surface-page:var(--saung-black);
---surface-raised:var(--graphite);
---surface-sunken:#0B0D0E;
---text-primary:var(--industrial-white);
---text-secondary:#B7BCBE;
---text-muted:var(--steel-gray);
---text-accent:var(--saung-green);
---text-link:var(--saung-green);
---text-link-hover:var(--industrial-white);
---line-hairline:#2E3336;
---line-rule:#3A4044;
---line-strong:var(--industrial-white);
-color:var(--text-primary);
-background:var(--surface-page);
+.saung-dark {
+  --surface-page: var(--saung-black);
+  --surface-raised: var(--graphite);
+  --surface-sunken: #0b0d0e;
+  --text-primary: var(--industrial-white);
+  --text-secondary: #b7bcbe;
+  --text-muted: var(--steel-gray);
+  --text-accent: var(--saung-green);
+  --text-link: var(--saung-green);
+  --text-link-hover: var(--industrial-white);
+  --line-hairline: #2e3336;
+  --line-rule: #3a4044;
+  --line-strong: var(--industrial-white);
+  color: var(--text-primary);
+  background: var(--surface-page);
 }
