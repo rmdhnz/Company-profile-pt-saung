@@ -1,5 +1,4 @@
 import type { Division } from '../types/content';
-import { bodyCopy } from '../styles/inline';
 
 type CapabilityCardProps = {
   division: Division;
@@ -24,24 +23,14 @@ export function CapabilityCard({
   ];
   return (
     <div
-      style={{
-        padding: 32,
-        border: '1px solid #E1E3E0',
-        background: '#FFFFFF',
-        borderRadius: 2,
-        borderTop: `2px solid ${accent}`,
-        display: 'grid',
-        gap: 16,
-        alignContent: 'start',
-      }}
+      className="p-8 border border-[#E1E3E0] bg-[#FFFFFF] rounded-[2px] border-t-2 grid gap-4 content-start"
+      style={{ borderTopColor: accent }}
     >
       <span
         aria-hidden="true"
+        className="inline-block w-7 h-7 bg-current"
         style={{
-          display: 'inline-block',
-          width: 28,
-          height: 28,
-          background: accent,
+          color: accent,
           WebkitMaskImage: `url("https://unpkg.com/lucide-static@0.446.0/icons/${icon}.svg")`,
           maskImage: `url("https://unpkg.com/lucide-static@0.446.0/icons/${icon}.svg")`,
           WebkitMaskRepeat: 'no-repeat',
@@ -50,48 +39,21 @@ export function CapabilityCard({
           maskSize: 'contain',
         }}
       />
-      <h3
-        style={{
-          margin: 0,
-          fontFamily: 'Manrope, sans-serif',
-          fontWeight: 700,
-          fontSize: 16,
-          textTransform: 'uppercase',
-          letterSpacing: '.04em',
-        }}
-      >
+      <h3 className="m-0 font-[Manrope,sans-serif] font-bold text-[16px] uppercase tracking-[.04em]">
         {title}
       </h3>
-      <p style={{ ...bodyCopy, fontSize: 14, lineHeight: 1.35 }}>
+      <p className="m-0 text-[14px] leading-[1.35] text-[#4B5155]">
         {description}
       </p>
-      <ul
-        style={{
-          margin: 0,
-          padding: 0,
-          listStyle: 'none',
-          display: 'grid',
-          gap: 8,
-        }}
-      >
+      <ul className="m-0 p-0 list-none grid gap-2">
         {items.map((item) => (
           <li
             key={item}
-            style={{
-              fontSize: 13,
-              color: '#4B5155',
-              display: 'flex',
-              gap: 12,
-              alignItems: 'baseline',
-            }}
+            className="text-[13px] text-[#4B5155] flex gap-3 items-baseline"
           >
             <span
-              style={{
-                width: 6,
-                height: 1,
-                background: accent,
-                flex: '0 0 auto',
-              }}
+              className="w-[6px] h-px shrink-0"
+              style={{ background: accent }}
             />
             {item}
           </li>

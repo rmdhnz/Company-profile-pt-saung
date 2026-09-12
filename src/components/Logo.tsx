@@ -8,7 +8,8 @@ export function Logo({ dark = false, height = 36 }: LogoProps) {
     <img
       src={dark ? darkLogo : logo}
       alt="PT SAUNG — PT Sinar Anugerah Anagata"
-      style={{ height, width: 'auto', display: 'block' }}
+      className="w-auto block"
+      style={{ height }}
     />
   );
 }

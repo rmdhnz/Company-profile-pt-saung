@@ -12,13 +12,7 @@ import { Workflow } from '../../sections/Workflow';
 
 export function Home() {
   return (
-    <div
-      style={{
-        fontFamily: 'Inter, sans-serif',
-        color: '#111315',
-        background: '#F7F8F6',
-      }}
-    >
+    <div className="font-['Inter',sans-serif] text-[#111315] bg-[#F7F8F6]">
       <Header />
       <Hero />
       <About />

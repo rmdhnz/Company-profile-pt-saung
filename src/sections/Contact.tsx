@@ -1,27 +1,20 @@
 import { Button } from '../components/Button';
-import { bodyCopy, contentWidth, heading } from '../styles/inline';
+import { contentWidth, heading } from '../styles/inline';
 
 export function Contact() {
   return (
     <section
       id="kontak"
       data-screen-label="Kontak"
-      style={{ background: '#25292C', color: '#F7F8F6' }}
+      className="bg-[#25292C] text-[#F7F8F6]"
     >
-      <div style={contentWidth}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '7fr 5fr',
-            gap: 64,
-            alignItems: 'end',
-          }}
-        >
-          <div style={{ display: 'grid', gap: 24 }}>
-            <h2 style={{ ...heading, fontSize: 48, color: '#F7F8F6' }}>
+      <div className={contentWidth}>
+        <div className="grid grid-cols-[7fr_5fr] gap-16 items-end">
+          <div className="grid gap-6">
+            <h2 className={`${heading} text-[48px] text-[#F7F8F6]`}>
               Punya kebutuhan teknis?
             </h2>
-            <p style={{ ...bodyCopy, color: '#C6CBCD', fontSize: 16 }}>
+            <p className="m-0 text-[16px] leading-[1.6] text-[#C6CBCD]">
               Kirimkan spesifikasi, ruang lingkup pekerjaan, atau kebutuhan
               equipment Anda. Tim kami akan meninjau permintaan tersebut dan
               mendiskusikan solusi yang sesuai.

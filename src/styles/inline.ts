@@ -1,21 +1,4 @@
-import type { CSSProperties } from 'react';
-
-export const contentWidth: CSSProperties = {
-  maxWidth: 1280,
-  margin: '0 auto',
-  padding: '96px 48px',
-};
-export const heading: CSSProperties = {
-  margin: 0,
-  fontFamily: 'Manrope, sans-serif',
-  fontWeight: 700,
-  fontSize: 36,
-  lineHeight: 1.12,
-  letterSpacing: '-.01em',
-};
-export const bodyCopy: CSSProperties = {
-  margin: 0,
-  fontSize: 15,
-  lineHeight: 1.6,
-  color: '#4B5155',
-};
+export const contentWidth = 'max-w-[1280px] mx-auto py-24 px-12';
+export const heading =
+  'm-0 font-[Manrope,sans-serif] font-bold text-[36px] leading-[1.12] tracking-[-.01em]';
+export const bodyCopy = 'm-0 text-[15px] leading-[1.6] text-[#4B5155]';

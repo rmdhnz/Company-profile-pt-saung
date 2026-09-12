@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 type ButtonProps = {
   children: ReactNode;
@@ -15,48 +15,20 @@ export function Button({
   arrow = false,
   size = 'md',
 }: ButtonProps) {
-  const sizes = {
-    sm: { fontSize: 11, padding: '8px 14px', minHeight: 34 },
-    md: { fontSize: 12, padding: '12px 20px', minHeight: 44 },
-    lg: { fontSize: 13, padding: '16px 24px', minHeight: 52 },
-  };
-  const variants: Record<string, CSSProperties> = {
-    primary: {
-      background: '#46B43C',
-      color: '#111315',
-      borderColor: '#46B43C',
-    },
-    secondary: {
-      background: 'transparent',
-      color: '#111315',
-      borderColor: '#111315',
-    },
-    ghost: {
-      background: 'transparent',
-      color: '#111315',
-      borderColor: 'transparent',
-      padding: '8px 0',
-    },
-  };
+  const sizeClass = {
+    sm: 'text-[11px] px-[14px] py-[8px] min-h-[34px]',
+    md: 'text-[12px] px-[20px] py-[12px] min-h-[44px]',
+    lg: 'text-[13px] px-[24px] py-[16px] min-h-[52px]',
+  }[size];
+  const variantClass = {
+    primary: 'bg-[#46B43C] text-[#111315] border-[#46B43C]',
+    secondary: 'bg-transparent text-[#111315] border-[#111315]',
+    ghost: 'bg-transparent text-[#111315] border-transparent px-0 py-[8px]',
+  }[variant];
   return (
     <a
-      className={`saung-button saung-button-${variant}`}
+      className={`saung-button saung-button-${variant} inline-flex items-center ${arrow ? 'justify-between' : 'justify-center'} gap-6 font-['Inter',sans-serif] font-semibold tracking-[.08em] uppercase rounded-[2px] border no-underline ${sizeClass} ${variantClass}`}
       href={href}
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        justifyContent: arrow ? 'space-between' : 'center',
-        gap: 24,
-        fontFamily: 'Inter, sans-serif',
-        fontWeight: 600,
-        letterSpacing: '.08em',
-        textTransform: 'uppercase',
-        borderRadius: 2,
-        border: '1px solid transparent',
-        textDecoration: 'none',
-        ...sizes[size],
-        ...variants[variant],
-      }}
     >
       {children}
       {arrow && <span aria-hidden="true">→</span>}

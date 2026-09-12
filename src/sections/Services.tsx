@@ -34,90 +34,51 @@ function CapabilitySection({
     <section
       id={id}
       data-screen-label={`${number} ${title}`}
-      style={{ borderTop: '1px solid #E1E3E0' }}
+      className="border-t border-[#E1E3E0]"
     >
-      <div style={contentWidth}>
+      <div className={contentWidth}>
         <SectionMarker number={number} title={title} accent={accent} />
-        <div
-          style={{
-            marginTop: 48,
-            display: 'grid',
-            gridTemplateColumns: '6fr 6fr',
-            gap: 64,
-          }}
-        >
-          <div style={{ display: 'grid', gap: 24 }}>
-            <h2 style={heading}>{headingText}</h2>
+        <div className="mt-12 grid grid-cols-[6fr_6fr] gap-16">
+          <div className="grid gap-6">
+            <h2 className={heading}>{headingText}</h2>
             {paragraphs.map((paragraph) => (
-              <p key={paragraph} style={bodyCopy}>
+              <p key={paragraph} className={bodyCopy}>
                 {paragraph}
               </p>
             ))}
           </div>
-          <div
-            style={{
-              aspectRatio: '3/2',
-              overflow: 'hidden',
-              background: '#E8EAE7',
-            }}
-          >
+          <div className="aspect-[3/2] overflow-hidden bg-[#E8EAE7]">
             <img
               src={image}
               alt={alt}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block',
-              }}
+              className="w-full h-full object-cover block"
             />
           </div>
         </div>
         <div
-          style={{
-            marginTop: 56,
-            display: 'grid',
-            gridTemplateColumns: `repeat(${cards.length === 4 ? 2 : 3},1fr)`,
-            gap: cards.length === 4 ? 0 : 24,
-          }}
+          className={
+            cards.length === 4
+              ? 'mt-14 grid grid-cols-2 gap-0'
+              : 'mt-14 grid grid-cols-3 gap-6'
+          }
         >
           {cards.map(([cardTitle, cardBody]) => (
             <div
               key={cardTitle}
-              style={{
-                border: '1px solid #E1E3E0',
-                borderTop: `2px solid ${accent}`,
-                background: '#FFFFFF',
-                padding: 32,
-                display: 'grid',
-                gap: 12,
-              }}
+              className="border border-[#E1E3E0] border-t-2 bg-[#FFFFFF] p-8 grid gap-3"
+              style={{ borderTopColor: accent }}
             >
-              <h3
-                style={{
-                  margin: 0,
-                  fontFamily: 'Manrope, sans-serif',
-                  fontWeight: 700,
-                  fontSize: 16,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.04em',
-                }}
-              >
+              <h3 className="m-0 font-[Manrope,sans-serif] font-bold text-[16px] uppercase tracking-[.04em]">
                 {cardTitle}
               </h3>
-              <p style={{ ...bodyCopy, fontSize: 13 }}>{cardBody}</p>
+              <p className="m-0 text-[13px] leading-[1.6] text-[#4B5155]">
+                {cardBody}
+              </p>
             </div>
           ))}
         </div>
         {note && (
-          <p
-            style={{
-              ...bodyCopy,
-              marginTop: 24,
-              fontSize: 13,
-              color: '#6F767B',
-            }}
-          >
+          <p className="m-0 mt-6 text-[13px] leading-[1.6] text-[#6F767B]">
             {note}
           </p>
         )}
@@ -132,27 +93,20 @@ export function Services() {
       <section
         id="kapabilitas"
         data-screen-label="02 Kapabilitas"
-        style={{ borderTop: '1px solid #E1E3E0' }}
+        className="border-t border-[#E1E3E0]"
       >
-        <div style={contentWidth}>
+        <div className={contentWidth}>
           <SectionMarker
             number="02"
             title="Kapabilitas"
             description="SAUNG menggabungkan kapabilitas engineering, supply, dan safety dalam satu ekosistem layanan yang saling melengkapi."
           />
-          <h2 style={{ ...heading, marginTop: 40 }}>
+          <h2 className={`${heading} mt-10`}>
             Satu perusahaan. Tiga kapabilitas terintegrasi.
           </h2>
-          <div
-            style={{
-              marginTop: 48,
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3,1fr)',
-              gap: 24,
-            }}
-          >
+          <div className="mt-12 grid grid-cols-3 gap-6">
             {capabilityCards.map((card) => (
-              <div key={card.title} style={{ display: 'grid', gap: 16 }}>
+              <div key={card.title} className="grid gap-4">
                 <CapabilityCard {...card} />
                 <Button
                   href={`#${card.division === 'marine' ? 'maritim' : card.division === 'industrial' ? 'industri' : 'keselamatan'}`}
@@ -169,15 +123,7 @@ export function Services() {
               </div>
             ))}
           </div>
-          <p
-            style={{
-              ...bodyCopy,
-              marginTop: 32,
-              fontSize: 13,
-              color: '#6F767B',
-              maxWidth: '88ch',
-            }}
-          >
+          <p className="m-0 mt-8 text-[13px] leading-[1.6] text-[#6F767B] max-w-[88ch]">
             Materi perusahaan mencantumkan berbagai kategori seperti pump,
             compressor, generator, electric motor, gearbox, valve, hydraulic
             equipment, marine piping, navigation equipment, dan komponen kapal

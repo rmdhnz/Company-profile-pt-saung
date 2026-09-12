@@ -4,36 +4,29 @@ import { EngineeringLine } from '../components/EngineeringLine';
 import { SectionMarker } from '../components/SectionMarker';
 import { SpecList } from '../components/SpecList';
 import { experienceList, projectSpecs } from '../data/home';
-import { bodyCopy, contentWidth, heading } from '../styles/inline';
+import { contentWidth, heading } from '../styles/inline';
 
 export function Experience() {
   return (
     <section
       id="pengalaman"
       data-screen-label="06 Pengalaman"
-      style={{ background: '#111315', color: '#F7F8F6' }}
+      className="bg-[#111315] text-[#F7F8F6]"
     >
-      <div style={contentWidth}>
+      <div className={contentWidth}>
         <SectionMarker number="06" title="Pengalaman Terpilih" dark />
-        <div
-          style={{
-            marginTop: 48,
-            display: 'grid',
-            gridTemplateColumns: '7fr 5fr',
-            gap: 64,
-          }}
-        >
-          <div style={{ display: 'grid', gap: 24 }}>
-            <h2 style={{ ...heading, color: '#F7F8F6' }}>
+        <div className="mt-12 grid grid-cols-[7fr_5fr] gap-16">
+          <div className="grid gap-6">
+            <h2 className={`${heading} text-[#F7F8F6]`}>
               Pengalaman pada berbagai jenis kapal dan kebutuhan operasi.
             </h2>
-            <p style={{ ...bodyCopy, color: '#C6CBCD' }}>
+            <p className="m-0 text-[15px] leading-[1.6] text-[#C6CBCD]">
               Tim yang berada di balik SAUNG membawa pengalaman pada berbagai
               jenis proyek maritim, mulai dari patrol vessels dan passenger
               vessels hingga mooring boats, rescue boats, tugboats, serta vessel
               repair and modification.
             </p>
-            <p style={{ ...bodyCopy, color: '#C6CBCD' }}>
+            <p className="m-0 text-[15px] leading-[1.6] text-[#C6CBCD]">
               Setiap proyek menunjukkan tuntutan yang berbeda—baik dari sisi
               ukuran, fungsi, konfigurasi maupun lingkungan operasi.
             </p>
@@ -41,46 +34,22 @@ export function Experience() {
               Jelajahi Pengalaman Terpilih
             </Button>
           </div>
-          <div style={{ display: 'grid', gap: 16 }}>
+          <div className="grid gap-4">
             <EngineeringLine label="Jenis pekerjaan" dark />
             <SpecList items={experienceList} dark />
           </div>
         </div>
-        <div
-          style={{
-            marginTop: 64,
-            display: 'grid',
-            gridTemplateColumns: '1.6fr 1fr',
-            gap: 48,
-          }}
-        >
+        <div className="mt-16 grid grid-cols-[1.6fr_1fr] gap-12">
           <img
             src={mooringBoatPhoto}
             alt="Mooring boat"
-            style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover' }}
+            className="w-full aspect-video object-cover"
           />
-          <div style={{ display: 'grid', gap: 20 }}>
-            <span
-              style={{
-                color: '#167D8D',
-                fontSize: 11,
-                fontWeight: 600,
-                letterSpacing: '.14em',
-                textTransform: 'uppercase',
-              }}
-            >
+          <div className="grid gap-5">
+            <span className="text-[#167D8D] text-[11px] font-semibold tracking-[.14em] uppercase">
               — Kapal Kerja
             </span>
-            <h3
-              style={{
-                margin: 0,
-                fontFamily: 'Manrope, sans-serif',
-                fontWeight: 700,
-                fontSize: 36,
-                color: '#F7F8F6',
-                textTransform: 'uppercase',
-              }}
-            >
+            <h3 className="m-0 font-[Manrope,sans-serif] font-bold text-[36px] text-[#F7F8F6] uppercase">
               Mooring Boat
             </h3>
             <SpecList items={projectSpecs} dark />
@@ -92,7 +61,7 @@ export function Experience() {
             >
               Lihat Proyek
             </Button>
-            <p style={{ ...bodyCopy, fontSize: 12, color: '#9BA1A4' }}>
+            <p className="m-0 text-[12px] leading-[1.6] text-[#9BA1A4]">
               Pekerjaan diselesaikan oleh tim teknis sebelum pendirian PT Sinar
               Anugerah Anagata pada 2025.
             </p>

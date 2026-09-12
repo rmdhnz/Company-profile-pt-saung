@@ -3,39 +3,10 @@ import { Logo } from '../components/Logo';
 
 export function Header() {
   return (
-    <header
-      style={{
-        position: 'sticky',
-        top: 0,
-        zIndex: 20,
-        background: '#F7F8F6',
-        borderBottom: '1px solid #E1E3E0',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: 1280,
-          margin: '0 auto',
-          padding: '0 48px',
-          minHeight: 76,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 24,
-        }}
-      >
+    <header className="sticky top-0 z-20 bg-[#F7F8F6] border-b border-[#E1E3E0]">
+      <div className="max-w-[1280px] mx-auto px-12 min-h-[76px] flex items-center gap-6">
         <Logo />
-        <nav
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            gap: 20,
-            marginLeft: 'auto',
-            fontSize: 12,
-            fontWeight: 600,
-            letterSpacing: '.08em',
-            textTransform: 'uppercase',
-          }}
-        >
+        <nav className="flex justify-end gap-5 ml-auto text-[12px] font-semibold tracking-[.08em] uppercase">
           <a href="#tentang">Perusahaan</a>
           <a href="#kapabilitas">Kapabilitas</a>
           <a className="secondary-nav" href="#maritim">

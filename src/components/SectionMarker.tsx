@@ -1,5 +1,3 @@
-import { bodyCopy } from '../styles/inline';
-
 type SectionMarkerProps = {
   number: string;
   title: string;
@@ -16,55 +14,27 @@ export function SectionMarker({
   dark = false,
 }: SectionMarkerProps) {
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'auto 1fr',
-        gap: 24,
-        alignItems: 'start',
-      }}
-    >
+    <div className="grid grid-cols-[auto_1fr] gap-6 items-start">
       <span
-        style={{
-          fontFamily: 'Manrope, sans-serif',
-          fontWeight: 800,
-          fontSize: 72,
-          lineHeight: 0.85,
-          letterSpacing: '-.03em',
-          color: accent,
-          fontVariantNumeric: 'tabular-nums',
-        }}
+        className="font-['Manrope',sans-serif] font-extrabold text-[72px] leading-[.85] tracking-[-.03em] tabular-nums"
+        style={{ color: accent }}
       >
         {number}
       </span>
       <div
-        style={{
-          display: 'grid',
-          gap: 8,
-          paddingTop: 4,
-          borderTop: `1px solid ${dark ? '#3A4044' : '#C9CCC9'}`,
-        }}
+        className="grid gap-2 pt-1 border-t"
+        style={{ borderTopColor: dark ? '#3A4044' : '#C9CCC9' }}
       >
         <h2
-          style={{
-            margin: 0,
-            fontFamily: 'Manrope, sans-serif',
-            fontWeight: 700,
-            fontSize: 24,
-            textTransform: 'uppercase',
-            letterSpacing: '.08em',
-            color: dark ? '#F7F8F6' : '#111315',
-          }}
+          className="m-0 font-['Manrope',sans-serif] font-bold text-[24px] uppercase tracking-[.08em]"
+          style={{ color: dark ? '#F7F8F6' : '#111315' }}
         >
           {title}
         </h2>
         {description && (
           <p
-            style={{
-              ...bodyCopy,
-              color: dark ? '#9BA1A4' : '#4B5155',
-              maxWidth: '52ch',
-            }}
+            className="m-0 text-[15px] leading-[1.6] max-w-[52ch]"
+            style={{ color: dark ? '#9BA1A4' : '#4B5155' }}
           >
             {description}
           </p>

@@ -1,23 +1,14 @@
 import { FooterLinks } from '../components/FooterLinks';
 import { Logo } from '../components/Logo';
-import { bodyCopy } from '../styles/inline';
 
 export function Footer() {
   return (
-    <footer style={{ background: '#111315', color: '#F7F8F6' }}>
-      <div
-        style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 48px 40px' }}
-      >
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '2fr 1.1fr 1.1fr 1.4fr',
-            gap: 48,
-          }}
-        >
-          <div style={{ display: 'grid', gap: 20 }}>
+    <footer className="bg-[#111315] text-[#F7F8F6]">
+      <div className="max-w-[1280px] mx-auto pt-16 px-12 pb-10">
+        <div className="grid grid-cols-[2fr_1.1fr_1.1fr_1.4fr] gap-12">
+          <div className="grid gap-5">
             <Logo dark height={42} />
-            <p style={{ ...bodyCopy, fontSize: 13, color: '#9BA1A4' }}>
+            <p className="m-0 text-[13px] leading-[1.6] text-[#9BA1A4]">
               PT Sinar Anugerah Anagata. Rekayasa maritim, sistem industri,
               serta keselamatan dan proteksi kebakaran.
             </p>
@@ -40,9 +31,7 @@ export function Footer() {
               ['#kontak', 'Kontak'],
             ]}
           />
-          <div
-            style={{ display: 'grid', gap: 12, fontSize: 13, color: '#C6CBCD' }}
-          >
+          <div className="grid gap-3 text-[13px] text-[#C6CBCD]">
             <span className="footer-label">Kontak</span>
             <span>Surabaya, Jawa Timur, Indonesia</span>
             <a href="tel:+623100000000">+62 31 0000 0000</a>
@@ -50,19 +39,7 @@ export function Footer() {
             <span>www.ptsaung.co.id</span>
           </div>
         </div>
-        <div
-          style={{
-            marginTop: 48,
-            paddingTop: 20,
-            borderTop: '1px solid #3A4044',
-            display: 'flex',
-            justifyContent: 'space-between',
-            fontSize: 11,
-            letterSpacing: '.08em',
-            textTransform: 'uppercase',
-            color: '#9BA1A4',
-          }}
-        >
+        <div className="mt-12 pt-5 border-t border-[#3A4044] flex justify-between text-[11px] tracking-[.08em] uppercase text-[#9BA1A4]">
           <span>© 2026 PT Sinar Anugerah Anagata</span>
           <span>Engineered for reliability</span>
         </div>

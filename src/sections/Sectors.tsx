@@ -1,45 +1,30 @@
 import { SectionMarker } from '../components/SectionMarker';
 import { sectorItems } from '../data/home';
-import { bodyCopy, contentWidth, heading } from '../styles/inline';
+import { contentWidth, heading } from '../styles/inline';
 
 export function Sectors() {
   return (
-    <section id="sektor" data-screen-label="08 Industri" style={contentWidth}>
+    <section
+      id="sektor"
+      data-screen-label="08 Industri"
+      className={contentWidth}
+    >
       <SectionMarker number="08" title="Sektor yang Kami Layani" />
-      <h2 style={{ ...heading, marginTop: 40 }}>
+      <h2 className={`${heading} mt-10`}>
         Mendukung operasi di berbagai sektor.
       </h2>
-      <div
-        style={{
-          marginTop: 48,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2,1fr)',
-          borderTop: '1px solid #111315',
-        }}
-      >
+      <div className="mt-12 grid grid-cols-2 border-t border-[#111315]">
         {sectorItems.map(([itemTitle, itemBody]) => (
           <div
             key={itemTitle}
-            style={{
-              padding: '28px 32px 28px 0',
-              borderBottom: '1px solid #E1E3E0',
-              display: 'grid',
-              gap: 8,
-            }}
+            className="py-7 pr-8 border-b border-[#E1E3E0] grid gap-2"
           >
-            <h3
-              style={{
-                margin: 0,
-                fontFamily: 'Manrope, sans-serif',
-                fontWeight: 700,
-                fontSize: 16,
-                textTransform: 'uppercase',
-                letterSpacing: '.04em',
-              }}
-            >
+            <h3 className="m-0 font-[Manrope,sans-serif] font-bold text-[16px] uppercase tracking-[.04em]">
               {itemTitle}
             </h3>
-            <p style={{ ...bodyCopy, fontSize: 13 }}>{itemBody}</p>
+            <p className="m-0 text-[13px] leading-[1.6] text-[#4B5155]">
+              {itemBody}
+            </p>
           </div>
         ))}
       </div>

@@ -1,61 +1,34 @@
 import { SectionMarker } from '../components/SectionMarker';
 import { workflowItems } from '../data/home';
-import { bodyCopy, contentWidth, heading } from '../styles/inline';
+import { contentWidth, heading } from '../styles/inline';
 
 export function Workflow() {
   return (
     <section
       id="cara-kerja"
       data-screen-label="07 Cara Kerja"
-      style={{ borderTop: '1px solid #E1E3E0' }}
+      className="border-t border-[#E1E3E0]"
     >
-      <div style={contentWidth}>
+      <div className={contentWidth}>
         <SectionMarker number="07" title="Cara Kami Bekerja" />
-        <h2 style={{ ...heading, marginTop: 40 }}>
+        <h2 className={`${heading} mt-10`}>
           Engineering yang praktis. Tanggung jawab yang jelas.
         </h2>
-        <div
-          style={{
-            marginTop: 48,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4,1fr)',
-            gap: 32,
-          }}
-        >
+        <div className="mt-12 grid grid-cols-4 gap-8">
           {workflowItems.map(([number, title, text]) => (
             <div
               key={number}
-              style={{
-                display: 'grid',
-                gap: 12,
-                borderTop: '1px solid #111315',
-                paddingTop: 20,
-              }}
+              className="grid gap-3 border-t border-[#111315] pt-5"
             >
-              <span
-                style={{
-                  fontFamily: 'Manrope, sans-serif',
-                  fontWeight: 800,
-                  fontSize: 13,
-                  letterSpacing: '.1em',
-                  color: '#46B43C',
-                }}
-              >
+              <span className="font-[Manrope,sans-serif] font-extrabold text-[13px] tracking-[.1em] text-[#46B43C]">
                 {number}
               </span>
-              <h3
-                style={{
-                  margin: 0,
-                  fontFamily: 'Manrope, sans-serif',
-                  fontWeight: 700,
-                  fontSize: 16,
-                  textTransform: 'uppercase',
-                  letterSpacing: '.04em',
-                }}
-              >
+              <h3 className="m-0 font-[Manrope,sans-serif] font-bold text-[16px] uppercase tracking-[.04em]">
                 {title}
               </h3>
-              <p style={{ ...bodyCopy, fontSize: 13 }}>{text}</p>
+              <p className="m-0 text-[13px] leading-[1.6] text-[#4B5155]">
+                {text}
+              </p>
             </div>
           ))}
         </div>
