@@ -26,8 +26,8 @@ export function Footer() {
             links={[
               ['#tentang', 'Perusahaan'],
               ['#kapabilitas', 'Kapabilitas'],
-              ['Pengalaman Terpilih.dc.html', 'Pengalaman Terpilih'],
-              ['Informasi Korporasi.dc.html', 'Informasi Korporasi'],
+              ['/pengalaman', 'Pengalaman Terpilih'],
+              ['/korporasi', 'Informasi Korporasi'],
               ['#kontak', 'Kontak'],
             ]}
           />

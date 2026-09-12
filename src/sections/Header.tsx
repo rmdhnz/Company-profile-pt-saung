@@ -1,5 +1,6 @@
 import { Button } from '../components/Button';
 import { Logo } from '../components/Logo';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -18,8 +19,8 @@ export function Header() {
           <a className="secondary-nav" href="#keselamatan">
             Keselamatan
           </a>
-          <a href="Pengalaman Terpilih.dc.html">Pengalaman</a>
-          <a href="Informasi Korporasi.dc.html">Korporasi</a>
+          <Link to="/pengalaman">Pengalaman</Link>
+          <Link to="/korporasi">Korporasi</Link>
         </nav>
         <Button
           href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"

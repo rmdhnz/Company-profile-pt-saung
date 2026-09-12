@@ -30,7 +30,7 @@ export function Experience() {
               Setiap proyek menunjukkan tuntutan yang berbeda—baik dari sisi
               ukuran, fungsi, konfigurasi maupun lingkungan operasi.
             </p>
-            <Button href="Pengalaman Terpilih.dc.html" arrow>
+            <Button href="/pengalaman" arrow>
               Jelajahi Pengalaman Terpilih
             </Button>
           </div>
@@ -53,12 +53,7 @@ export function Experience() {
               Mooring Boat
             </h3>
             <SpecList items={projectSpecs} dark />
-            <Button
-              href="Pengalaman Terpilih.dc.html"
-              variant="secondary"
-              size="sm"
-              arrow
-            >
+            <Button href="/pengalaman" variant="secondary" size="sm" arrow>
               Lihat Proyek
             </Button>
             <p className="m-0 text-[12px] leading-[1.6] text-[#9BA1A4]">

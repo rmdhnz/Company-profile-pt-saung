@@ -23,11 +23,7 @@ export function Corporate() {
               Surabaya dan memiliki dokumen pendirian serta perizinan usaha yang
               dicantumkan dalam materi perusahaan.
             </p>
-            <Button
-              href="Informasi Korporasi.dc.html"
-              variant="secondary"
-              arrow
-            >
+            <Button href="/korporasi" variant="secondary" arrow>
               Lihat Informasi Korporasi
             </Button>
           </div>

@@ -35,7 +35,7 @@ export function Hero() {
           <Button href="#kapabilitas" arrow>
             Lihat Kapabilitas Kami
           </Button>
-          <Button href="Pengalaman Terpilih.dc.html" variant="secondary">
+          <Button href="/pengalaman" variant="secondary">
             Lihat Pengalaman Terpilih
           </Button>
         </div>

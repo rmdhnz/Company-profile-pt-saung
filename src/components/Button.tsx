@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 
 type ButtonProps = {
   children: ReactNode;
@@ -25,13 +26,23 @@ export function Button({
     secondary: 'bg-transparent text-[#111315] border-[#111315]',
     ghost: 'bg-transparent text-[#111315] border-transparent px-0 py-[8px]',
   }[variant];
-  return (
-    <a
-      className={`saung-button saung-button-${variant} inline-flex items-center ${arrow ? 'justify-between' : 'justify-center'} gap-6 font-['Inter',sans-serif] font-semibold tracking-[.08em] uppercase rounded-[2px] border no-underline ${sizeClass} ${variantClass}`}
-      href={href}
-    >
+  const className = `saung-button saung-button-${variant} inline-flex items-center ${arrow ? 'justify-between' : 'justify-center'} gap-6 font-['Inter',sans-serif] font-semibold tracking-[.08em] uppercase rounded-[2px] border no-underline ${sizeClass} ${variantClass}`;
+  const content = (
+    <>
       {children}
       {arrow && <span aria-hidden="true">→</span>}
+    </>
+  );
+  if (href.startsWith('/')) {
+    return (
+      <Link className={className} to={href}>
+        {content}
+      </Link>
+    );
+  }
+  return (
+    <a className={className} href={href}>
+      {content}
     </a>
   );
 }
