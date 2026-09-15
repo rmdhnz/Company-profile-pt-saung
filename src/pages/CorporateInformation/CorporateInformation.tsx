@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Logo } from '../../components/Logo';
+import { MobileMenuButton } from '../../components/MobileMenuButton';
 import { SectionMarker } from '../../components/SectionMarker';
 import { SpecList } from '../../components/SpecList';
 import { corporateData } from '../../data/home';
@@ -45,6 +47,9 @@ const scopeRows = [
 ];
 
 export function CorporateInformation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <div className="font-['Inter',sans-serif] text-[#111315] bg-[#F7F8F6]">
       <header className="sticky top-0 z-20 bg-[#F7F8F6] border-b border-[#E1E3E0]">
@@ -52,16 +57,33 @@ export function CorporateInformation() {
           <Link to="/">
             <Logo />
           </Link>
-          <nav className="site-nav flex justify-end gap-5 ml-auto text-[12px] font-semibold tracking-[.06em] uppercase">
-            <Link to="/#tentang">Perusahaan</Link>
-            <Link to="/#kapabilitas">Kapabilitas</Link>
-            <Link to="/pengalaman">Pengalaman</Link>
+          <nav
+            id="mobile-navigation"
+            className={`site-nav flex justify-end gap-5 ml-auto text-[12px] font-semibold tracking-[.06em] uppercase ${isMenuOpen ? 'is-open' : ''}`}
+          >
+            <Link to="/#tentang" onClick={closeMenu}>
+              Perusahaan
+            </Link>
+            <Link to="/#kapabilitas" onClick={closeMenu}>
+              Kapabilitas
+            </Link>
+            <Link to="/pengalaman" onClick={closeMenu}>
+              Pengalaman
+            </Link>
             <Link
               className="text-[#111315] border-b-2 border-[#46B43C] pb-1"
               to="/korporasi"
+              onClick={closeMenu}
             >
               Korporasi
             </Link>
+            <Button
+              className="mobile-menu-action"
+              href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
+              size="sm"
+            >
+              Ajukan Kebutuhan
+            </Button>
           </nav>
           <Button
             className="site-header-action"
@@ -70,6 +92,10 @@ export function CorporateInformation() {
           >
             Ajukan Kebutuhan
           </Button>
+          <MobileMenuButton
+            isOpen={isMenuOpen}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          />
         </div>
       </header>
       <section className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 pt-16">
@@ -176,7 +202,7 @@ export function CorporateInformation() {
       <footer className="bg-[#111315] text-[#F7F8F6] border-t border-[#3A4044]">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-14 flex justify-between items-end gap-12 flex-wrap">
           <Logo dark height={42} />
-          <div className="flex gap-8 text-[13px] text-[#C6CBCD]">
+          <div className="flex flex-wrap gap-8 text-[13px] text-[#C6CBCD]">
             <Link to="/">Halaman Utama</Link>
             <Link to="/pengalaman">Pengalaman Terpilih</Link>
             <a href="mailto:info@ptsaung.co.id">info@ptsaung.co.id</a>
