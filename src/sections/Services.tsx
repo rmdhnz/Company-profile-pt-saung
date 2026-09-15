@@ -38,7 +38,7 @@ function CapabilitySection({
     >
       <div className={contentWidth}>
         <SectionMarker number={number} title={title} accent={accent} />
-        <div className="mt-12 grid grid-cols-[6fr_6fr] gap-16">
+        <div className="mt-12 grid grid-cols-[6fr_6fr] max-lg:grid-cols-1 gap-16">
           <div className="grid gap-6">
             <h2 className={heading}>{headingText}</h2>
             {paragraphs.map((paragraph) => (
@@ -58,8 +58,8 @@ function CapabilitySection({
         <div
           className={
             cards.length === 4
-              ? 'mt-14 grid grid-cols-2 gap-0'
-              : 'mt-14 grid grid-cols-3 gap-6'
+              ? 'mt-14 grid grid-cols-2 max-md:grid-cols-1 gap-0'
+              : 'mt-14 grid grid-cols-3 max-md:grid-cols-1 gap-6'
           }
         >
           {cards.map(([cardTitle, cardBody]) => (
@@ -104,7 +104,7 @@ export function Services() {
           <h2 className={`${heading} mt-10`}>
             Satu perusahaan. Tiga kapabilitas terintegrasi.
           </h2>
-          <div className="mt-12 grid grid-cols-3 gap-6">
+          <div className="mt-12 grid grid-cols-3 max-md:grid-cols-1 gap-6">
             {capabilityCards.map((card) => (
               <div key={card.title} className="grid gap-4">
                 <CapabilityCard {...card} />

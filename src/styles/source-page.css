@@ -7,6 +7,10 @@ body {
   background: #f7f8f6;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   color: #111315;
   border-bottom: none;
@@ -19,6 +23,10 @@ a:hover {
 
 header nav a {
   white-space: nowrap;
+}
+
+header .site-header-inner {
+  min-width: 0;
 }
 
 .saung-button {
@@ -57,8 +65,34 @@ header nav a {
 }
 
 @media (max-width: 900px) {
-  header nav {
-    display: none !important;
+  header .site-header-inner {
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  header .site-nav {
+    flex-basis: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-left: 0;
+    order: 3;
+  }
+
+  header .site-nav a {
+    white-space: normal;
+  }
+
+  header .site-header-action {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 639px) {
+  header .site-header-action {
+    font-size: 10px;
+    padding: 7px 10px;
   }
 }
 

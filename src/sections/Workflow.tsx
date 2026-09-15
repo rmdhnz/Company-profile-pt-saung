@@ -14,7 +14,7 @@ export function Workflow() {
         <h2 className={`${heading} mt-10`}>
           Engineering yang praktis. Tanggung jawab yang jelas.
         </h2>
-        <div className="mt-12 grid grid-cols-4 gap-8">
+        <div className="mt-12 grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8">
           {workflowItems.map(([number, title, text]) => (
             <div
               key={number}

@@ -4,8 +4,8 @@ import { Logo } from '../components/Logo';
 export function Footer() {
   return (
     <footer className="bg-[#111315] text-[#F7F8F6]">
-      <div className="max-w-[1280px] mx-auto pt-16 px-12 pb-10">
-        <div className="grid grid-cols-[2fr_1.1fr_1.1fr_1.4fr] gap-12">
+      <div className="max-w-[1280px] mx-auto pt-16 px-5 sm:px-8 lg:px-12 pb-10">
+        <div className="grid grid-cols-[2fr_1.1fr_1.1fr_1.4fr] max-lg:grid-cols-2 max-sm:grid-cols-1 gap-12">
           <div className="grid gap-5">
             <Logo dark height={42} />
             <p className="m-0 text-[13px] leading-[1.6] text-[#9BA1A4]">

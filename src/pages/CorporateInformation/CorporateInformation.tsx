@@ -48,11 +48,11 @@ export function CorporateInformation() {
   return (
     <div className="font-['Inter',sans-serif] text-[#111315] bg-[#F7F8F6]">
       <header className="sticky top-0 z-20 bg-[#F7F8F6] border-b border-[#E1E3E0]">
-        <div className="max-w-[1280px] mx-auto px-12 min-h-[76px] flex items-center gap-6">
+        <div className="site-header-inner max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 min-h-[76px] flex items-center gap-6 flex-wrap lg:flex-nowrap">
           <Link to="/">
             <Logo />
           </Link>
-          <nav className="flex justify-end gap-5 ml-auto text-[12px] font-semibold tracking-[.06em] uppercase">
+          <nav className="site-nav flex justify-end gap-5 ml-auto text-[12px] font-semibold tracking-[.06em] uppercase">
             <Link to="/#tentang">Perusahaan</Link>
             <Link to="/#kapabilitas">Kapabilitas</Link>
             <Link to="/pengalaman">Pengalaman</Link>
@@ -64,6 +64,7 @@ export function CorporateInformation() {
             </Link>
           </nav>
           <Button
+            className="site-header-action"
             href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
             size="sm"
           >
@@ -71,7 +72,7 @@ export function CorporateInformation() {
           </Button>
         </div>
       </header>
-      <section className="max-w-[1280px] mx-auto px-12 pt-16">
+      <section className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 pt-16">
         <Link
           to="/"
           className="text-[11px] font-semibold tracking-[.14em] uppercase text-[#6F767B]"
@@ -81,9 +82,9 @@ export function CorporateInformation() {
         <div className="mt-8">
           <SectionMarker number="09" title="Informasi Perusahaan" />
         </div>
-        <div className="mt-10 grid grid-cols-[6fr_6fr] gap-16 items-start pb-24">
+        <div className="mt-10 grid grid-cols-[6fr_6fr] max-lg:grid-cols-1 gap-16 items-start pb-24">
           <div className="grid gap-6">
-            <h1 className="m-0 font-[Manrope,sans-serif] font-extrabold text-[48px] leading-[1.08] tracking-[-.02em] max-w-[20ch]">
+            <h1 className="m-0 font-[Manrope,sans-serif] font-extrabold text-[48px] max-sm:text-[36px] leading-[1.08] tracking-[-.02em] max-w-[20ch]">
               Dibangun di atas fondasi korporasi yang formal.
             </h1>
             <p className={`${bodyCopy} max-w-[60ch]`}>
@@ -108,7 +109,7 @@ export function CorporateInformation() {
             title="Dokumen & Perizinan"
             description="Dokumen legalitas perusahaan tersedia dan dapat disampaikan kepada calon klien atas permintaan."
           />
-          <div className="mt-12 grid grid-cols-3 gap-6">
+          <div className="mt-12 grid grid-cols-3 max-md:grid-cols-1 gap-6">
             {documents.map(([title, body]) => (
               <div
                 key={title}
@@ -133,7 +134,7 @@ export function CorporateInformation() {
       <section className="border-t border-[#E1E3E0]">
         <div className={contentWidth}>
           <SectionMarker number="02" title="Ruang Lingkup Usaha" />
-          <div className="mt-10 grid grid-cols-2 border-t border-[#111315]">
+          <div className="mt-10 grid grid-cols-2 max-md:grid-cols-1 border-t border-[#111315]">
             {scopeRows.map(([title, body]) => (
               <div
                 key={title}
@@ -152,9 +153,9 @@ export function CorporateInformation() {
       </section>
       <section className="bg-[#111315] text-[#F7F8F6]">
         <div className={`${contentWidth} py-[88px]`}>
-          <div className="grid grid-cols-[7fr_5fr] gap-16 items-end">
+          <div className="grid grid-cols-[7fr_5fr] max-lg:grid-cols-1 gap-16 items-end">
             <div className="grid gap-6">
-              <h2 className="m-0 font-[Manrope,sans-serif] font-extrabold text-[44px] leading-[1.08] max-w-[22ch]">
+              <h2 className="m-0 font-[Manrope,sans-serif] font-extrabold text-[44px] max-sm:text-[34px] leading-[1.08] max-w-[22ch]">
                 Perlu dokumen legalitas untuk proses pengadaan?
               </h2>
               <p className="m-0 text-[16px] leading-[1.6] text-[#C6CBCD] max-w-[56ch]">
@@ -173,7 +174,7 @@ export function CorporateInformation() {
         </div>
       </section>
       <footer className="bg-[#111315] text-[#F7F8F6] border-t border-[#3A4044]">
-        <div className="max-w-[1280px] mx-auto px-12 py-14 flex justify-between items-end gap-12 flex-wrap">
+        <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-14 flex justify-between items-end gap-12 flex-wrap">
           <Logo dark height={42} />
           <div className="flex gap-8 text-[13px] text-[#C6CBCD]">
             <Link to="/">Halaman Utama</Link>

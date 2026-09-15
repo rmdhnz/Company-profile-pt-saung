@@ -7,6 +7,7 @@ type ButtonProps = {
   variant?: 'primary' | 'secondary' | 'ghost';
   arrow?: boolean;
   size?: 'sm' | 'md' | 'lg';
+  className?: string;
 };
 
 export function Button({
@@ -15,6 +16,7 @@ export function Button({
   variant = 'primary',
   arrow = false,
   size = 'md',
+  className: customClassName = '',
 }: ButtonProps) {
   const sizeClass = {
     sm: 'text-[11px] px-[14px] py-[8px] min-h-[34px]',
@@ -26,7 +28,7 @@ export function Button({
     secondary: 'bg-transparent text-[#111315] border-[#111315]',
     ghost: 'bg-transparent text-[#111315] border-transparent px-0 py-[8px]',
   }[variant];
-  const className = `saung-button saung-button-${variant} inline-flex items-center ${arrow ? 'justify-between' : 'justify-center'} gap-6 font-['Inter',sans-serif] font-semibold tracking-[.08em] uppercase rounded-[2px] border no-underline ${sizeClass} ${variantClass}`;
+  const className = `saung-button saung-button-${variant} inline-flex items-center ${arrow ? 'justify-between' : 'justify-center'} gap-6 font-['Inter',sans-serif] font-semibold tracking-[.08em] uppercase rounded-[2px] border no-underline ${sizeClass} ${variantClass} ${customClassName}`;
   const content = (
     <>
       {children}

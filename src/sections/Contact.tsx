@@ -9,7 +9,7 @@ export function Contact() {
       className="bg-[#25292C] text-[#F7F8F6]"
     >
       <div className={contentWidth}>
-        <div className="grid grid-cols-[7fr_5fr] gap-16 items-end">
+        <div className="grid grid-cols-[7fr_5fr] max-lg:grid-cols-1 gap-16 items-end">
           <div className="grid gap-6">
             <h2 className={`${heading} text-[48px] text-[#F7F8F6]`}>
               Punya kebutuhan teknis?

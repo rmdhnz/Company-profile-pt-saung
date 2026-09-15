@@ -7,8 +7,10 @@ export function Statement() {
       className="bg-[#111315] text-[#F7F8F6]"
     >
       <div className={`${contentWidth} pt-[112px] pb-[112px]`}>
-        <div className="grid grid-cols-[7fr_5fr] gap-16 items-end">
-          <h2 className={`${heading} text-[56px] text-[#F7F8F6]`}>
+        <div className="grid grid-cols-[7fr_5fr] max-lg:grid-cols-1 gap-16 items-end">
+          <h2
+            className={`${heading} text-[56px] max-sm:text-[40px] text-[#F7F8F6]`}
+          >
             Kami tidak menjual kompleksitas. Kami menyelesaikan kebutuhan
             operasional.
           </h2>

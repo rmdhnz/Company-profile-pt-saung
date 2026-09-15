@@ -13,7 +13,7 @@ export function Sectors() {
       <h2 className={`${heading} mt-10`}>
         Mendukung operasi di berbagai sektor.
       </h2>
-      <div className="mt-12 grid grid-cols-2 border-t border-[#111315]">
+      <div className="mt-12 grid grid-cols-2 max-md:grid-cols-1 border-t border-[#111315]">
         {sectorItems.map(([itemTitle, itemBody]) => (
           <div
             key={itemTitle}

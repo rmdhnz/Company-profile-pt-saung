@@ -15,7 +15,7 @@ export function Experience() {
     >
       <div className={contentWidth}>
         <SectionMarker number="06" title="Pengalaman Terpilih" dark />
-        <div className="mt-12 grid grid-cols-[7fr_5fr] gap-16">
+        <div className="mt-12 grid grid-cols-[7fr_5fr] max-lg:grid-cols-1 gap-16">
           <div className="grid gap-6">
             <h2 className={`${heading} text-[#F7F8F6]`}>
               Pengalaman pada berbagai jenis kapal dan kebutuhan operasi.
@@ -39,7 +39,7 @@ export function Experience() {
             <SpecList items={experienceList} dark />
           </div>
         </div>
-        <div className="mt-16 grid grid-cols-[1.6fr_1fr] gap-12">
+        <div className="mt-16 grid grid-cols-[1.6fr_1fr] max-lg:grid-cols-1 gap-12">
           <img
             src={mooringBoatPhoto}
             alt="Mooring boat"

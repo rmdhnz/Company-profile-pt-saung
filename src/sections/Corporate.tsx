@@ -13,7 +13,7 @@ export function Corporate() {
     >
       <div className={contentWidth}>
         <SectionMarker number="09" title="Informasi Perusahaan" />
-        <div className="mt-12 grid grid-cols-[6fr_6fr] gap-16">
+        <div className="mt-12 grid grid-cols-[6fr_6fr] max-lg:grid-cols-1 gap-16">
           <div className="grid gap-6">
             <h2 className={heading}>
               Dibangun di atas fondasi korporasi yang formal.

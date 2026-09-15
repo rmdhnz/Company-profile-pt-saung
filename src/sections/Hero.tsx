@@ -18,7 +18,7 @@ export function Hero() {
         <span className="text-[11px] font-semibold tracking-[.14em] uppercase text-[#46B43C]">
           PT Sinar Anugerah Anagata
         </span>
-        <h1 className="m-0 mt-6 font-[Manrope,sans-serif] font-extrabold text-[64px] leading-[1.04] tracking-[-.02em] uppercase max-w-[17ch]">
+        <h1 className="m-0 mt-6 font-[Manrope,sans-serif] font-extrabold text-[64px] max-sm:text-[40px] leading-[1.04] tracking-[-.02em] uppercase max-w-[17ch]">
           Rekayasa Maritim. Sistem Industri. Dibangun untuk Keandalan.
         </h1>
         <p className="m-0 mt-7 max-w-[58ch] text-[18px] leading-[1.6] text-[#C6CBCD]">
@@ -31,15 +31,15 @@ export function Hero() {
           aluminium serta penyediaan mesin dan peralatan untuk kebutuhan maritim
           dan industri.
         </p>
-        <div className="mt-10 flex gap-4 flex-wrap">
+        <div className="flex gap-4 flex-wrap">
           <Button href="#kapabilitas" arrow>
             Lihat Kapabilitas Kami
           </Button>
           <Button href="/pengalaman" variant="secondary">
-            Lihat Pengalaman Terpilih
+            <span className="text-white">Lihat Pengalaman Terpilih</span>
           </Button>
         </div>
-        <div className="mt-20 grid grid-cols-4 gap-8 border-t border-[#3A4044] pt-7">
+        <div className="mt-20 grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-1 gap-8 border-t border-[#3A4044] pt-7">
           {[
             ['03', 'Kapabilitas terintegrasi'],
             ['2025', 'Tahun pendirian'],

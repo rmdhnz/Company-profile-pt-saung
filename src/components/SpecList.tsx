@@ -8,7 +8,7 @@ export function SpecList({ items, dark = false }: SpecListProps) {
       {items.map((item) => (
         <div
           key={item.label}
-          className="grid grid-cols-2 gap-4 py-3 border-b"
+          className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 py-3 border-b"
           style={{ borderBottomColor: dark ? '#3A4044' : '#E1E3E0' }}
         >
           <dt

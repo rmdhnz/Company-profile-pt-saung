@@ -10,7 +10,7 @@ export function About() {
       className={contentWidth}
     >
       <SectionMarker number="01" title="Tentang SAUNG" />
-      <div className="mt-12 grid grid-cols-[7fr_5fr] gap-16 items-start">
+      <div className="mt-12 grid grid-cols-[7fr_5fr] max-lg:grid-cols-1 gap-16 items-start">
         <div className="grid gap-6">
           <h2 className={heading}>
             Solusi engineering untuk operasi maritim dan industri.
