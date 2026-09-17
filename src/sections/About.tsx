@@ -1,4 +1,4 @@
-import plantPhoto from '../assets/saung/photo-plant.png';
+import plantPhoto from '../assets/saung/photo-plant.jpg';
 import { SectionMarker } from '../components/SectionMarker';
 import { bodyCopy, contentWidth, heading } from '../styles/inline';
 
