@@ -1,0 +1,12 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: company-profile
+
+    ports:
+      - "80:80"
+
+    restart: unless-stopped
