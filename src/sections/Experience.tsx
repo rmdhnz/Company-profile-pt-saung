@@ -53,7 +53,13 @@ export function Experience() {
               Mooring Boat
             </h3>
             <SpecList items={projectSpecs} dark />
-            <Button href="/pengalaman" variant="secondary" size="sm" arrow>
+            <Button
+              href="/pengalaman"
+              variant="secondary"
+              size="sm"
+              arrow
+              className="text-[#F7F8F6]"
+            >
               Lihat Proyek
             </Button>
             <p className="m-0 text-[12px] leading-[1.6] text-[#9BA1A4]">

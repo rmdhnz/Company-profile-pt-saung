@@ -17,6 +17,10 @@ a {
   text-decoration: none;
 }
 
+footer a:not(.text-white) {
+  color: #c6cbcd;
+}
+
 a:hover {
   color: #2e7a28;
 }

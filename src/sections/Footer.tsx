@@ -34,9 +34,11 @@ export function Footer() {
           <div className="grid gap-3 text-[13px] text-[#C6CBCD]">
             <span className="footer-label">Kontak</span>
             <span>Surabaya, Jawa Timur, Indonesia</span>
-            <a href="tel:+623100000000">+62 31 0000 0000</a>
-            <a href="mailto:info@ptsaung.co.id">info@ptsaung.co.id</a>
-            <span>www.ptsaung.co.id</span>
+            <a href="tel:+623100000000">+62 818-700-286</a>
+            {/* <a href="mailto:info@ptsaung.co.id">info@ptsaung.co.id</a> */}
+            <a href="/" className="text-white">
+              <span className="text-white">www.ptsaung.com</span>
+            </a>
           </div>
         </div>
         <div className="mt-12 pt-5 border-t border-[#3A4044] flex justify-between text-[11px] tracking-[.08em] uppercase text-[#9BA1A4]">
