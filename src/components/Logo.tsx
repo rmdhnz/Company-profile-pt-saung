@@ -1,5 +1,7 @@
-import logo from '../assets/saung/logo-lockup.png';
-import darkLogo from '../assets/saung/logo-lockup-dark.png';
+import logo from '../assets/saung/logo-upscale-light-no-bg.png';
+// import logo from '../assets/saung/logo-lockup.png';
+// import darkLogo from '../assets/saung/logo-upscale-dark.png';
+import darkLogo from '../assets/saung/logo-upscale-dark-no-bg.png';
 
 type LogoProps = { dark?: boolean; height?: number };
 
