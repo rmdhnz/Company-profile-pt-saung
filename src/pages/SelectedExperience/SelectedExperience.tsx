@@ -9,6 +9,7 @@ import { SectionMarker } from '../../components/SectionMarker';
 import { SpecList } from '../../components/SpecList';
 import { experienceList, projectSpecs } from '../../data/home';
 import { contentWidth } from '../../styles/inline';
+import { email } from '../../data/home';
 
 const scopeRows = [
   [
@@ -75,7 +76,7 @@ export function SelectedExperience() {
             </Link>
             <Button
               className="mobile-menu-action"
-              href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
+              href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
               size="sm"
             >
               Ajukan Kebutuhan
@@ -83,7 +84,7 @@ export function SelectedExperience() {
           </nav>
           <Button
             className="site-header-action"
-            href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
+            href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
             size="sm"
           >
             Ajukan Kebutuhan
@@ -197,7 +198,7 @@ export function SelectedExperience() {
               </p>
             </div>
             <Button
-              href="mailto:info@ptsaung.co.id?subject=Permintaan%20dokumentasi%20pengalaman%20proyek"
+              href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
               size="lg"
               arrow
             >
@@ -212,7 +213,11 @@ export function SelectedExperience() {
           <div className="flex flex-wrap gap-8 text-[13px] text-[#C6CBCD]">
             <Link to="/">Halaman Utama</Link>
             <Link to="/korporasi">Informasi Korporasi</Link>
-            <a href="mailto:info@ptsaung.co.id">info@ptsaung.co.id</a>
+            <a
+              href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
+            >
+              sales@ptsaung.com
+            </a>
           </div>
         </div>
       </footer>

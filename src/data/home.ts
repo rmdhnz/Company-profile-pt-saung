@@ -29,7 +29,7 @@ export const safetyItems = [
   'Peralatan keselamatan industri',
 ];
 
-export const email: any = {
+export const email = {
   yuvico: 'yuvico@ptsaung.com',
   wahyu: 'wahyu@ptsaung.com',
   sales: 'sales@ptsaung.com',

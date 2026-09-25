@@ -7,7 +7,7 @@ import { SectionMarker } from '../../components/SectionMarker';
 import { SpecList } from '../../components/SpecList';
 import { corporateData } from '../../data/home';
 import { bodyCopy, contentWidth } from '../../styles/inline';
-
+import { email } from '../../data/home';
 const corporateDetails = [
   ...corporateData,
   {
@@ -79,7 +79,7 @@ export function CorporateInformation() {
             </Link>
             <Button
               className="mobile-menu-action"
-              href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
+              href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
               size="sm"
             >
               Ajukan Kebutuhan
@@ -87,7 +87,7 @@ export function CorporateInformation() {
           </nav>
           <Button
             className="site-header-action"
-            href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
+            href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
             size="sm"
           >
             Ajukan Kebutuhan
@@ -190,7 +190,7 @@ export function CorporateInformation() {
               </p>
             </div>
             <Button
-              href="mailto:info@ptsaung.co.id?subject=Permintaan%20dokumen%20legalitas%20perusahaan"
+              href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
               size="lg"
               arrow
             >
@@ -205,7 +205,11 @@ export function CorporateInformation() {
           <div className="flex flex-wrap gap-8 text-[13px] text-[#C6CBCD]">
             <Link to="/">Halaman Utama</Link>
             <Link to="/pengalaman">Pengalaman Terpilih</Link>
-            <a href="mailto:info@ptsaung.co.id">info@ptsaung.co.id</a>
+            <a
+              href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
+            >
+              info@ptsaung.co.id
+            </a>
           </div>
         </div>
       </footer>

@@ -3,7 +3,7 @@ import { Button } from '../components/Button';
 import { Logo } from '../components/Logo';
 import { MobileMenuButton } from '../components/MobileMenuButton';
 import { Link } from 'react-router-dom';
-
+import { email } from '../data/home';
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
@@ -39,7 +39,7 @@ export function Header() {
           </Link>
           <Button
             className="mobile-menu-action"
-            href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
+            href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
             size="sm"
           >
             Ajukan Kebutuhan
@@ -47,7 +47,7 @@ export function Header() {
         </nav>
         <Button
           className="site-header-action"
-          href="mailto:info@ptsaung.co.id?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG"
+          href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
           size="sm"
         >
           Ajukan Kebutuhan
