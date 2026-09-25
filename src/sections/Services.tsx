@@ -1,5 +1,5 @@
 import industrialPhoto from '../assets/saung/photo-industrial.png';
-import marinePhoto from '../assets/saung/photo-marine.png';
+import marinePhoto from '../assets/saung/photo-marine-upscale.png';
 import safetyPhoto from '../assets/saung/photo-safety.png';
 import { Button } from '../components/Button';
 import { CapabilityCard } from '../components/CapabilityCard';

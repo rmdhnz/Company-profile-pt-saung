@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import mooringBoatPhoto from '../../assets/saung/photo-mooring-boat.png';
+import mooringBoatPhoto from '../../assets/saung/photo-mooring-boat-upscale.png';
 import { Button } from '../../components/Button';
 import { EngineeringLine } from '../../components/EngineeringLine';
 import { Logo } from '../../components/Logo';

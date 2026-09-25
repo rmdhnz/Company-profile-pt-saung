@@ -1,4 +1,4 @@
-import marinePhoto from '../assets/saung/photo-marine.png';
+import marinePhoto from '../assets/saung/photo-marine-upscale.png';
 import { Button } from '../components/Button';
 import { contentWidth } from '../styles/inline';
 
@@ -26,16 +26,20 @@ export function Hero() {
           industri, mulai dari pembangunan dan perbaikan kapal, penyediaan mesin
           dan komponen, hingga sistem keselamatan dan proteksi kebakaran.
         </p>
-        <p className="m-0 mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-[#9BA1A4]">
+        {/* <p className="m-0 mt-4 max-w-[58ch] text-[15px] leading-[1.6] text-[#9BA1A4]">
           Perusahaan bergerak dalam produksi kapal berbahan fiberglass dan
           aluminium serta penyediaan mesin dan peralatan untuk kebutuhan maritim
           dan industri.
-        </p>
-        <div className="flex gap-4 flex-wrap">
+        </p> */}
+        <div className="flex mt-3 md:mt-4 gap-4 flex-wrap">
           <Button href="#kapabilitas" arrow>
             Lihat Kapabilitas Kami
           </Button>
-          <Button href="/pengalaman" variant="secondary">
+          <Button
+            href="/pengalaman"
+            variant="secondary"
+            className="bg-[#000000]"
+          >
             <span className="text-white">Lihat Pengalaman Terpilih</span>
           </Button>
         </div>

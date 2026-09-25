@@ -1,5 +1,6 @@
 import { Button } from '../components/Button';
 import { contentWidth, heading } from '../styles/inline';
+import { email } from '../data/home';
 
 export function Contact() {
   return (
@@ -21,7 +22,7 @@ export function Contact() {
             </p>
           </div>
           <Button
-            href="mailto:info@ptsaung.co.id?subject=Diskusi%20kebutuhan%20teknis%20-%20PT%20SAUNG&body=Mohon%20sampaikan%20spesifikasi%2C%20ruang%20lingkup%20pekerjaan%2C%20atau%20kebutuhan%20equipment%20Anda."
+            href={`mailto:${email.sales ?? 'sales@ptsaung.com'}?subject=Diskusi%20kebutuhan%20teknis%20-%20PT%20SAUNG&body=Mohon%20sampaikan%20spesifikasi%2C%20ruang%20lingkup%20pekerjaan%2C%20atau%20kebutuhan%20equipment%20Anda.`}
             size="lg"
             arrow
           >

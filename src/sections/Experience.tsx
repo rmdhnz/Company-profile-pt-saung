@@ -1,4 +1,4 @@
-import mooringBoatPhoto from '../assets/saung/photo-mooring-boat.png';
+import mooringBoatPhoto from '../assets/saung/photo-mooring-boat-upscale.png';
 import { Button } from '../components/Button';
 import { EngineeringLine } from '../components/EngineeringLine';
 import { SectionMarker } from '../components/SectionMarker';

@@ -1,5 +1,8 @@
 import type { CapabilityCardData, ContentCard, Item } from '../types/content';
 
+export const address: string =
+  'Jl. Perum Bumi Marina Emas Timur Tahap I Blok C VII No. 29, Kel. Keputih, Kec. Sukolilo, Surabaya, Jawa Timur, Indonesia';
+
 export const marineItems = [
   'Pembangunan kapal',
   'Kapal fiberglass',
@@ -25,6 +28,12 @@ export const safetyItems = [
   'Peralatan keselamatan maritim',
   'Peralatan keselamatan industri',
 ];
+
+export const email: any = {
+  yuvico: 'yuvico@ptsaung.com',
+  wahyu: 'wahyu@ptsaung.com',
+  sales: 'sales@ptsaung.com',
+};
 
 export const experienceList: Item[] = [
   { label: 'Kapal patroli', value: 'Patrol vessels' },
