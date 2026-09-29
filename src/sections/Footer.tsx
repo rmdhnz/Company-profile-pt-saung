@@ -1,6 +1,6 @@
 import { FooterLinks } from '../components/FooterLinks';
 import { Logo } from '../components/Logo';
-import { address } from '../data/home';
+import { address, contactSales } from '../data/home';
 
 export function Footer() {
   return (
@@ -35,7 +35,7 @@ export function Footer() {
           <div className="grid gap-3 text-[13px] text-[#C6CBCD]">
             <span className="footer-label">Kontak</span>
             <span>{address}</span>
-            <a href="tel:+623100000000">+62 818-700-286</a>
+            <a href="">{contactSales}</a>
             {/* <a href="mailto:info@ptsaung.co.id">info@ptsaung.co.id</a> */}
             <a href="/" className="text-white">
               <span className="text-white">www.ptsaung.com</span>

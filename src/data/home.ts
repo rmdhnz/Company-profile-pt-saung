@@ -123,3 +123,5 @@ export const sectorItems: ContentCard[] = [
     'Solusi bagi organisasi yang bergantung pada aset maritim dan industri yang andal.',
   ],
 ];
+
+export const contactSales: string = '+62 887-1198-260';
