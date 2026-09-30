@@ -13,9 +13,16 @@ export function MobileMenuButton({ isOpen, onClick }: MobileMenuButtonProps) {
       aria-controls="mobile-navigation"
       onClick={onClick}
     >
-      <span aria-hidden="true" />
-      <span aria-hidden="true" />
-      <span aria-hidden="true" />
+      <svg
+        className="site-menu-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <path d="M5 7h14" />
+        <path d="M5 12h14" />
+        <path d="M5 17h14" />
+      </svg>
     </button>
   );
 }

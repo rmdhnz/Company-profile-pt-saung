@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button';
 import { Logo } from '../../components/Logo';
@@ -49,6 +49,17 @@ const scopeRows = [
 export function CorporateInformation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <div className="font-['Inter',sans-serif] text-[#111315] bg-[#F7F8F6]">
@@ -208,7 +219,7 @@ export function CorporateInformation() {
             <a
               href={`mailto:${email.sales}?subject=Kebutuhan%20teknis%20-%20PT%20SAUNG`}
             >
-              info@ptsaung.co.id
+              {email.sales ?? 'sales@ptsaung.com'}
             </a>
           </div>
         </div>

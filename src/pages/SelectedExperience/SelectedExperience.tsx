@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import mooringBoatPhoto from '../../assets/saung/photo-mooring-boat-upscale.png';
 import { Button } from '../../components/Button';
@@ -46,6 +46,17 @@ const scopeRows = [
 export function SelectedExperience() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const closeMenu = () => setIsMenuOpen(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        closeMenu();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   return (
     <div className="font-['Inter',sans-serif] text-[#111315] bg-[#F7F8F6]">

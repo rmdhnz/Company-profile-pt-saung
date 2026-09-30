@@ -85,9 +85,10 @@ header .site-header-inner {
 
   header .site-nav {
     flex-basis: 100%;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
     margin-left: 0;
     order: 3;
     max-height: 0;
@@ -96,34 +97,88 @@ header .site-header-inner {
     pointer-events: none;
     transform: translateY(-8px);
     transition:
-      max-height 220ms ease,
+      max-height 280ms cubic-bezier(0.2, 0, 0.2, 1),
       opacity 180ms ease,
-      transform 220ms ease,
-      visibility 220ms ease;
+      transform 280ms cubic-bezier(0.2, 0, 0.2, 1),
+      visibility 0s linear 280ms;
     visibility: hidden;
   }
 
   header .site-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 10px 0;
     white-space: normal;
+    border-bottom: 1px solid #e1e3e0;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      color 140ms cubic-bezier(0.2, 0, 0.2, 1),
+      opacity 180ms ease,
+      transform 220ms cubic-bezier(0.2, 0, 0.2, 1);
   }
 
-  header .site-nav.is-open {
-    max-height: 500px;
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-    visibility: visible;
-  }
-
-  header .site-nav.is-open .secondary-nav {
-    display: inline;
+  header .site-nav .secondary-nav {
+    display: flex;
   }
 
   header .site-nav .mobile-menu-action {
     display: inline-flex;
-    flex-basis: 100%;
-    width: fit-content;
-    margin-top: 8px;
+    align-self: flex-start;
+    margin-top: 16px;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition:
+      background-color 140ms cubic-bezier(0.2, 0, 0.2, 1),
+      border-color 140ms cubic-bezier(0.2, 0, 0.2, 1),
+      color 140ms cubic-bezier(0.2, 0, 0.2, 1),
+      opacity 180ms ease,
+      transform 220ms cubic-bezier(0.2, 0, 0.2, 1);
+  }
+
+  header .site-nav.is-open {
+    max-height: 520px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+    visibility: visible;
+  }
+
+  header .site-nav.is-open a,
+  header .site-nav.is-open .mobile-menu-action {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  header .site-nav.is-open a:nth-child(1) {
+    transition-delay: 40ms;
+  }
+
+  header .site-nav.is-open a:nth-child(2) {
+    transition-delay: 70ms;
+  }
+
+  header .site-nav.is-open a:nth-child(3) {
+    transition-delay: 100ms;
+  }
+
+  header .site-nav.is-open a:nth-child(4) {
+    transition-delay: 130ms;
+  }
+
+  header .site-nav.is-open a:nth-child(5) {
+    transition-delay: 160ms;
+  }
+
+  header .site-nav.is-open a:nth-child(6) {
+    transition-delay: 190ms;
+  }
+
+  header .site-nav.is-open a:nth-child(7),
+  header .site-nav.is-open .mobile-menu-action {
+    transition-delay: 220ms;
   }
 
   header .site-header-action {
@@ -152,27 +207,33 @@ header .site-header-inner {
     outline-offset: 3px;
   }
 
-  .site-menu-toggle span {
-    display: block;
-    width: 18px;
-    height: 1px;
-    background: currentColor;
+  .site-menu-icon {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 1.75;
+  }
+
+  .site-menu-icon path {
+    transform-box: fill-box;
     transform-origin: center;
     transition:
-      transform 180ms ease,
-      opacity 180ms ease;
+      transform 200ms cubic-bezier(0.2, 0, 0.2, 1),
+      opacity 160ms ease;
   }
 
-  .site-menu-toggle[aria-expanded='true'] span:first-child {
-    transform: translateY(6px) rotate(45deg);
+  .site-menu-toggle[aria-expanded='true'] .site-menu-icon path:first-child {
+    transform: translateY(5px) rotate(45deg);
   }
 
-  .site-menu-toggle[aria-expanded='true'] span:nth-child(2) {
+  .site-menu-toggle[aria-expanded='true'] .site-menu-icon path:nth-child(2) {
     opacity: 0;
   }
 
-  .site-menu-toggle[aria-expanded='true'] span:last-child {
-    transform: translateY(-6px) rotate(-45deg);
+  .site-menu-toggle[aria-expanded='true'] .site-menu-icon path:last-child {
+    transform: translateY(-5px) rotate(-45deg);
   }
 }
 
