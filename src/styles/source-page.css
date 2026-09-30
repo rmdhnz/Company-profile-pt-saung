@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
 }
 
+section[id] {
+  scroll-margin-top: 76px;
+}
+
 body {
   margin: 0;
   background: #f7f8f6;
@@ -71,12 +75,6 @@ header .site-header-inner {
 }
 
 @media (max-width: 1240px) {
-  header nav .secondary-nav {
-    display: none;
-  }
-}
-
-@media (max-width: 900px) {
   header .site-header-inner {
     align-items: center;
     padding-top: 16px;

@@ -75,6 +75,19 @@ export function SelectedExperience() {
             <Link to="/#kapabilitas" onClick={closeMenu}>
               Kapabilitas
             </Link>
+            <Link className="secondary-nav" to="/#maritim" onClick={closeMenu}>
+              Maritim
+            </Link>
+            <Link className="secondary-nav" to="/#industri" onClick={closeMenu}>
+              Industri
+            </Link>
+            <Link
+              className="secondary-nav"
+              to="/#keselamatan"
+              onClick={closeMenu}
+            >
+              Keselamatan
+            </Link>
             <Link
               className="text-[#111315] border-b-2 border-[#46B43C] pb-1"
               to="/pengalaman"

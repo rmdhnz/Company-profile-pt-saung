@@ -78,6 +78,19 @@ export function CorporateInformation() {
             <Link to="/#kapabilitas" onClick={closeMenu}>
               Kapabilitas
             </Link>
+            <Link className="secondary-nav" to="/#maritim" onClick={closeMenu}>
+              Maritim
+            </Link>
+            <Link className="secondary-nav" to="/#industri" onClick={closeMenu}>
+              Industri
+            </Link>
+            <Link
+              className="secondary-nav"
+              to="/#keselamatan"
+              onClick={closeMenu}
+            >
+              Keselamatan
+            </Link>
             <Link to="/pengalaman" onClick={closeMenu}>
               Pengalaman
             </Link>
